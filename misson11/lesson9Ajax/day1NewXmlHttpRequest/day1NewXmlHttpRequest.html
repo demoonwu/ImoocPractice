@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<title>使用XmlHttpRequest对象</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	var request;
+	if(window.XMLHttpRequest){
+		request=new XMLHttpRequest();//常规使用方法
+	}else{
+		request=new ActiveXObjext("Microsoft.XMLHTTP");//IE5、IE6使用方法，一般放弃
+	}
+</script>
+</body>
+</html>

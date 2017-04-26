@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>添加和移除属性</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+</head>
+<body>
+	<div>第一个DIV，使用attr</div>
+	<button>第二个DIV，使用prop</button><br/>
+	<span id="span1">span添加和移除属性的范例，使用attr</span><br>
+	<span id="span2">span添加和移除属性的范例，使用attr</span><br>
+	<span id="span3">span添加和移除属性的范例，使用attr</span><br>
+	<span id="span4">span添加和移除属性的范例，使用attr</span><br>
+	<!-- <button id="span5">span添加和移除属性的范例，使用prop</button> -->
+<script type="text/javascript">
+// 	jquery中attr和prop的区别
+// 在高版本的jquery引入prop方法后，什么时候该用prop？什么时候用attr？它们两个之间有什么区别？这些问题就出现了。
+// 关于它们两个的区别，网上的答案很多。这里谈谈我的心得，我的心得很简单：
+// 对于HTML元素本身就带有的固有属性，在处理时，使用prop方法。
+// 对于HTML元素我们自己自定义的DOM属性，在处理时，使用attr方法。
+	$("div:first").attr("name","div1");//使用attr添加属性，不兼容IE6.0以及以下版本
+	$("span:first").removeAttr("id");//使用removeAttr移除属性，不兼容IR6.0以及以下版本
+	$("button:eq(0)").prop("name","div2");//使用prop添加属性
+	$("span:nth-child(6)").removeAttr("id");//不知道什么时候使用removeProp不过用removeAttr已经够了
+</script>
+</body>
+</html>

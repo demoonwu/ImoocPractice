@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文章列表页</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
+
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container header-padd">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#example-navbar-collapse">
+					<span class="sr-only">切换导航</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#search-navbar-collapse">
+					<a href="#">我的账户</a>
+				</button>
+				<a href="#" class="navbar-brand logo">学编程</a>
+			</div>
+			<div class="row collapse navbar-collapse" id="search-navbar-collapse">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group search">
+						<input type="text" name="#" class="form-control search" placeholder="搜索">
+						<button class="btn btn-link" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="progress-diy"></div>
+		<div class="container">
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown" >
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">全部课程<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">前端开发</a></li>
+							<li><a href="#">后端开发</a></li>
+							<li><a href="#">移动开发</a></li>
+							<li><a href="#">数据库</a></li>
+						</ul>
+					</li>
+					<li  class="dropdown" data-toggle="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">文章咨询<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">技术文章</a></li>
+							<li><a href="#">行业资讯</a></li>
+						</ul>
+					<li><a href="#">学习小组</a></li>
+					<li><a href="#" id="mytab">捐助本站</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="nav-list">
+			<div class="navbar sec-nav" role="navigation">
+				<ul class="nav nav-tabs nav-tabs-justified">
+					<li><a data-toggle="tab" href="#hot">热门文章频道</a></li>
+					<li class="active"><a data-toggle="tab" href="#tec">技术文章</a></li>
+					<li><a data-toggle="tab" href="#news">行业资讯</a></li>
+				</ul>
+				<div class="thr-nav">
+					<div class="tab-content">
+					    <div id="hot" class="tab-pane fade">
+					    </div>
+					    <div id="tec" class="tab-pane fade in active">
+					      <ul class="nav nav-tabs nav-tabs-justified">
+					      	<li><a href="">全部</a></li>
+					      	<li><a href="">前端</a></li>
+					      	<li><a href="">数据库</a></li>
+					      	<li><a href="">服务端</a></li>
+					      </ul>
+					    </div>
+					    <div id="news" class="tab-pane fade">
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container clearfix">
+		<div class="row">
+			<div class="col-md-8 pull-left">
+				<div class="list">
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">服务端</small>
+							<h3 class="media-heading">linux下的环境变量详解</h3>
+						</div>
+						<div class="content">
+							环境变量简介有木有遇到过这样的情况，你明明刚刚安装了一个程序，可是在shell里执行命令的时候就是报错说找不到command。哦哦，后来才知道原来是没有设置PATH环境变量。PATH环境变量决定了shell将要在那些目录寻找命令或者程序，PATH的值是一系列目录，当你运行一个命令的时候，linux在...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">前端</small>
+							<h3 class="media-heading">JavaScript-DOM浅析</h3>
+						</div>
+						<div class="content">
+							DOM简介DOM（Document Object Model）即文档对象模型，针对HTML 和XML 文档的API（应用程序接口）。DOM 描绘了一个层次化的节点树，运行开发人员添加、移除和修改页面的某一部分。通过 DOM，可以访问所有的 HTML 元素，连同它们所包含的文本和属性。可以对其中的内容...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">前端</small>
+							<h3 class="media-heading">纯CSS完美实现垂直水平居中的6种方式</h3>
+						</div>
+						<div class="content">
+							前言由于HTML语言的定位问题，在网页中实现居中也不是如word中那么简单，尤其在内容样式多变，内容宽高不定的情况下，要实现合理的居中也是颇考 验工程师经验的。网上讲居中的文章很多，但是都不太完整，所以小茄今天就来总结下纯CSS实现居中的各种方案。学疏才浅，文中如有不当之处，万望指出！6种方案1、绝...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">服务端</small>
+							<h3 class="media-heading">PHP防止同一个账号，同时在多个不同设备登录(单点登录)</h3>
+						</div>
+						<div class="content">
+							应用场景一般登录过程是校验用户账号、密码，把用户ID 记录到SESSION , 每个需要校验是否登录，根据SESSION 的用户ID 是否存在。那么出现一种情况，一个账号在N台设备被登录了，用户根本不知道。为了提高安全性，提供以下方案。方案原理1、在用户表新增三个字段分别存储，用户登录口令、上次登录...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">前端</small>
+							<h3 class="media-heading">前端开发者应该知道的 CSS 小技巧</h3>
+						</div>
+						<div class="content">
+							一些小技巧让你的CSS技术更专业1,使用:not()去除导航上不需要的边框2,为body添加行高3,垂直居中任何元素4,逗号分离的列表5,使用负nth-child选择元素6,使用SVG图标7,文本显示优化8,在纯CSS幻灯片上使用max-height9,继承box-sizing10,表格单元格等宽1...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">数据库</small>
+							<h3 class="media-heading">MySQL延迟更新索引(delay_key_write)</h3>
+						</div>
+						<div class="content">
+							MySQL延迟更新索引（Delayed Key Write）：使用表创建选项DELAY_KEY_WRITE创建的myisam表，在查询结束后，不会将索引的改变数据写入磁盘，而是在内存的健缓冲区（In- memory key buffer）中缓存索引改变数据。它只会在清理缓存区，或关闭表时，才将索引块...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">数据库</small>
+							<h3 class="media-heading">MySQL读写分离介绍及搭建</h3>
+						</div>
+						<div class="content">
+							MySQL读写分离介绍MySQL读写分离基本原理是让master数据库处理写操作，slave数据库处理读操作。master将写操作的变更同步到各个slave节点。MySQL读写分离能提高系统性能的原因在于：物理服务器增加，机器处理能力提升。拿硬件换性能。主从只负责各自的读和写，极大程度缓解X锁和S锁...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">数据库</small>
+							<h3 class="media-heading">在MySQL的InnoDB存储引擎中count(*)函数的优化</h3>
+						</div>
+						<div class="content">
+							写这篇文章之前已经看过了很多数据库方面的优化内容，大部分都是加索引、使用事务、要什么select什么等等。然而，只是停留在阅读的层面上，很 少有实践，因为没有遇到真实的项目，一切都是纸上谈兵。实践是检验真理的唯一标准，于是就想在数据库上测试一些性能优化的方案，比如索引之类的，但是不想 使用假的数据，...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">数据库</small>
+							<h3 class="media-heading">Mysql 中创建索引和索引的使用问题</h3>
+						</div>
+						<div class="content">
+							在数据库中合理的使用索引是提升mysql数据库的一种高效和快捷的方式，但是在索引的使用上在我的使用中发现有很多坑，因为自己之前没有认识到，所以来总结一下索引的介绍索引是一种特殊的文件，其中包含着对数据表中的所有记录的引用指针添加索引的条件字段中存储的内容重复性不能过高，比如性别，颜色等这些可区分性很...
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<small style="color:#919191">数据库</small>
+							<h3 class="media-heading">千万级别数据的mysql数据表优化</h3>
+						</div>
+						<div class="content">
+							出发点比如，现在有这么一个问题，常见的一个面试题：有一张users表，数据量在五千万以上，存在一条查询语句：SELECT * FROM users WHERE name LIKE '%明%' AND sex='男' AND age=32 AND created_at ...
+						</div>
+					</div>
+					<nav style="text-align: center;">
+						<ul class="pagination text-center">
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">&gt;</a></li>
+							<li><a href="#">尾页</a></li>
+						</ul>
+					</nav>
+				</div>
+				
+			</div>
+			<div class="col-md-4 pull-left">
+				<div class="panel panel-default ri-list">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							热门文章推荐
+						</h4>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled">
+							<li><span class="num pull-left">1</span><a href="#">php实现递归的三种基本方式...</a></li>
+							<li><span class="num pull-left">2</span><a href="#">Mysql 中创建索引和索引的使用问题...</a></li>
+							<li><span class="num pull-left">3</span><a href="#">前端开发者应该知道的 CSS 小技巧...</a></li>
+							<li><span class="num pull-left">4</span><a href="#">纯CSS完美实现垂直水平居中的6种方式...</a></li>
+							<li><span class="num pull-left">5</span><a href="#">linux下的环境变量详解...</a></li>
+							<li><span class="num pull-left">6</span><a href="#">千万级别数据的mysql数据表优化...</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default ri-list">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							热门标签
+						</h4>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled list-inline">
+							<li><span class="label label-success">thinkphp</span></li>
+							<li><span class="label label-success">Mongodb</span></li>
+							<li><span class="label label-success">photoshop</span></li>
+							<li><span class="label label-success">hbase</span></li>
+							<li><span class="label label-success">hdfs</span></li>
+							<li><span class="label label-success">hadoop</span></li>
+							<li><span class="label label-success">jquery插件</span></li>
+							<li><span class="label label-success">jquery</span></li>
+							<li><span class="label label-success">微信公众平台</span></li>
+							<li><span class="label label-success">swift</span></li>
+							<li><span class="label label-success">游戏开发</span></li>
+							<li><span class="label label-success">手机游戏开发</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default ri-list">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							热门评论
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>Powered by <a href="#">EduSoho v7.5.12</a> ©2014-2017 <a href="#">好知网   课程存档</a> 课程内容版权均归<a href="#">学编程</a>所有 <a href="#">京ICP备13042384号</a></p>
+	</div>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="text/javascript">
+	$('#mytab a').click(function(e){
+		e.preventDefault();
+		$(this).tab('show');
+	})
+
+</script>
+</body>
+</html>

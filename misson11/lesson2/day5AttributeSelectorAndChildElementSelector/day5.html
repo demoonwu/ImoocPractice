@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>属性选择器</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<style type="text/css">
+		*{
+			margin: 10px;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<div>
+			<li id="li1">line1</li>
+			<li class="li2">line2</li>
+			<li>line3</li>
+		</div>
+		<li class="li_attribute_one">line4</li>
+		<li>line5</li>
+		<div>
+			<li>line6</li>
+		</div>
+		<li>line7</li>
+		<li>line8</li>
+	</ul>
+<script type="text/javascript">
+	//$("li[id]").css("color","red");  //li属性选择器
+	//$("li[class=li2]").css("color","blue");//li属性=等于的使用
+	//$("li[class!=li2]").css("color","green");//li属性!=不等于的使用
+	//$("li[class^=l]").css("color","red");//li属性选择器^=属性值以什么开头的使用
+	//$("li[class$=2]").css("color","gray");//li属性选择器$=属性值以什么结尾的使用
+	//$("li[class*=i]").css("color","blue");//li属性值*=属性值包含什么的使用
+	//$("li[class^=li][class$=one][class*=attribute]").css("color","green");//li属性值的多重过滤
+	//$("li:nth-child(3)").css("color","red");//匹配父元素的第几个子元素，可以使用2n+1之类的公式
+	//$("li:first-child").css("color","blue");//匹配父元素的第一个子元素
+	//$("li:last-child").css("color","green");//匹配父元素的最后一个子元素
+	//$("li:only-child").css("color","yellow");//匹配父元素的独生子元素
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<{config_load file="test.config" section="news"}>
+
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<{#title#}>
+	</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><{#title#}></li>
+			<li><{$smarty.config.content}></li>
+			<li><{#newsContent#}></li>
+			<li><{$smarty.get.username}></li>
+			<li><{$smarty.server.REMOTE_ADDR}></li>
+			<li><{$smarty.const.__LINE__}></li>
+		</ul>
+	</div>
+</body>
+</html>

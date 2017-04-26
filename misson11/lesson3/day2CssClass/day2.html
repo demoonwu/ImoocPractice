@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Css类</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<style type="text/css">
+		.divDemo{
+			width:200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+		.active{
+			background: red;
+		}
+	</style>
+<body>
+	<div class="divDemo">divDemo</div>
+	<script type="text/javascript">
+		//使用三种函数方法来操作class
+		//1、使用addClass方法添加class
+		//2、使用removeClass方法去除class
+		//3、使用toggleClass方法来切换class
+		// $(".divDemo").click(function(){
+		// 	$(this).addClass("active");
+		// })
+		// $(".divDemo").dblclick(function(){
+		// 	$(this).removeClass("active");
+		// })
+		$(".divDemo").click(function(){
+			$(this).toggleClass("active");
+		})
+	</script>
+</body>
+</html>

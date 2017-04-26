@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<title>AJAX的表单</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.demoTable{
+/*			border: 1px solid black;
+*/			background: red;
+		}
+		/*设置隔行换色*/
+		.demoTable tr td{
+			width: 80px;
+			height: 25px;
+			line-height: 25px;
+			text-align: center;
+		}	
+		.demoTable tr:nth-child(odd){
+			background: yellow;
+		}
+		.demoTable tr:nth-child(even){
+			background: gray;
+		}
+		.demoTable a{
+			text-decoration:none;
+		}
+		.demoTable input{
+			padding: 1px;
+			border: 0;
+			width: 78px;
+			height: 25px;
+			line-height: 25px;
+			text-align: center;
+		}
+		.viewDiv{
+			border: 1px solid black;
+			margin:  0 auto;
+			width:300px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>通过双击来开启编辑模式</h1>
+		<table class="demoTable">
+			<tr>
+				<th>ID</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>职位</th>
+				<th>薪资</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td><input type="text" name="name" value="蒋小康"></td>
+				<td><input type="text" name="age" value="20"></td>
+				<td><input type="text" name="office" value="实习保安"></td>
+				<td><input type="text" name="salary" value="12000"></td>
+				<td><a class="completeButton" href="javascript:;">完成</a></td>
+			</tr>
+		
+			<tr>
+				<td>1</td>
+				<td>潘小豆</td>
+				<td>18</td>
+				<td>总经理</td>
+				<td>100000</td>
+				<td><a class="viewButton" href="javascript:;">查看</a> <a class="delButton" href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>杨小胖</td>
+				<td>18</td>
+				<td>总裁</td>
+				<td>200000</td>
+				<td><a class="viewButton" href="javascript:;">查看</a> <a class="delButton" href="javascript:;">删除</a></td>
+			</tr>
+		</table>
+	</div>
+	<button class="requestButton">POST数据传输请求</button>
+<script type="text/javascript">	
+	$(document).ready(function(){
+		//使用document来绑定事件绑定事件
+		$(".requestButton").one("click", requestHandler);
+		$(document).on("click",".demoTable tbody tr td a.delButton",delHandler);
+		$(document).on("click",".demoTable tbody tr td a.viewButton",viewHandler);//绑定查看事件
+		$(document).on("dblclick",".demoTable tbody tr td",editHandler);//绑定编辑事件
+		$(document).on("dblclick",".demoTable tbody tr td input",endHandler);//绑定编辑事件,防止二次点击
+		$(document).on("click",".demoTable tbody tr td a.completeButton",completeHandler);//绑定完成事件
+		$(document).on("click",".viewDiv",removeView);//绑定移除事件
+
+		function removeView(){
+			var meObj=$(this);
+			$(this).hide(1000, function(){
+				meObj.remove();
+			})
+		}
+		
+		function endHandler(){
+			return false;
+		}
+
+		function viewHandler(){
+			var meObj=$(this).parent().parent();
+			var viewId=meObj.find(":first").html();
+			var viewName=meObj.find(":eq(1)").html();
+			var viewAge=meObj.find(":eq(2)").html();
+			var viewOffice=meObj.find(":eq(3)").html();
+			var viewSalary=meObj.find(":eq(4)").html();
+			str="<div class='viewDiv'>";
+			str+="<span>ID:"+viewId+"</span><br/>";
+			str+="<span>姓名:"+viewName+"</span><br/>";
+			str+="<span>年龄:"+viewAge+"</span><br/>";
+			str+="<span>职位:"+viewOffice+"</span><br/>";
+			str+="<span>薪水:"+viewSalary+"</span><br/></div>";
+			
+			console.log(str);
+			$("body").append(str);
+
+		}
+		//进行数据删除操作
+		function delHandler(){
+			//通过find方法找到第一个子元素，然后算出id
+			var delId=$(this).parent().parent().find(":first").html();
+			var meObj=$(this);//定义对象
+			$.post("./server.php", 
+			{
+				"action":"del_data",
+				"delId":delId
+			}, function(data,status){
+				if (data.success=="true") {
+						meObj.parent().parent().remove();//移除数据
+				}else{
+					alert("删除失败...");
+				}
+			})
+		}
+		//进行数据修改操作
+		function editHandler(){
+			//开启数据修改模式,整理数据
+			var meObj=$(this).parent();
+			var editId=meObj.find(":first").html();
+			var editName=meObj.find(":eq(1)").html();
+			var editAge=meObj.find(":eq(2)").html();
+			var editOffice=meObj.find(":eq(3)").html();
+			var editSalary=meObj.find(":eq(4)").html();
+
+			var str="<tr><td>"+editId+"</td>";
+			str+="<td><input type='text' name='name' value='"+editName+"'></td>";
+			str+="<td><input type='text' name='age' value='"+editAge+"'></td>";
+			str+="<td><input type='text' name='office' value='"+editOffice+"'></td>";
+			str+="<td><input type='text' name='salary' value='"+editSalary+"'></td>";
+			str+="<td><a class='completeButton' href='javascript:;'>完成</a></td></tr>"
+					
+
+			meObj.replaceWith(str);
+		}
+		//进行数据完成修改操作
+		function completeHandler(){
+			//完成数据修改
+			var meObj=$(this);
+			var editId=$(this).parent().parent().find(":first").html();
+			var editName=$(this).parent().parent().find(" :input[name='name']").val();
+			var editAge=$(this).parent().parent().find(" :input[name='age']").val();
+			var editOffice=$(this).parent().parent().find(" :input[name='office']").val();
+			var editSalary=$(this).parent().parent().find(" :input[name='salary']").val();
+
+			$.post("./server.php", 
+				{
+					"action":"edit_data",
+					"id":editId,
+					"name":editName,
+					"age":editAge,
+					"office":editOffice,
+					"salary":editSalary
+				}, function(data,status){
+					if(data.success=='true'){
+						var str="<tr><td>"+data.id+"</td>";
+						str+="<td>"+data.name+"</td>";
+						str+="<td>"+data.age+"</td>";
+						str+="<td>"+data.office+"</td>";
+						str+="<td>"+data.salary+'</td><td><a class="viewButton" href="javascript:;"">查看</a> <a class="delButton" href="javascript:;">删除</a></td></tr>';
+						meObj.parent().parent().replaceWith(str);
+					}
+				})
+		}
+		//获取数据
+		function requestHandler(){
+				$.post("./server.php", 
+			{
+				"action":"init_data_list"
+			}, function(data,status){
+				//jQuery.parseJSON(data);
+				//alert(JSON.parse(data));
+				//为什么不用JSON.parse解码数据呢？
+				//alert(data[0]["name"]);
+				//使用each解码数据
+				$.each(data, function(key,value){
+					var str="<tr><td>";
+					$.each(value, function(key,values){
+						str+=values+"</td><td>";					
+					})
+					str=str.substring(0,str.length-4);
+					str+='<td><a class="viewButton" href="javascript:;">查看</a> <a class="delButton" href="javascript:;">删除</a></td></tr>';
+					$(".demoTable tbody").append(str);
+				})
+			})
+		}	
+	})	
+</script>
+</body>
+</html>

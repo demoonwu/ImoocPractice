@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<title>事件处理</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+
+		<span>box2</span>
+		<br/>
+		<span>box1</span>
+
+	</div>
+	<button>button1</button>
+<script type="text/javascript">
+	// $("div").on("click",function(){//使用on方法绑定
+	// 	$("<span>增加1成功</span>").insertBefore("div:first");
+	// });
+	// $("div").on("dblclick",function(){//使用on方法绑定
+	// 	$("<span>增加2成功</span>").insertBefore("div:first");
+	// });
+	// $("button").on("click",function(){
+	// 	$("div").off("click");//使用off方法解绑
+	// });
+	$("span:last").bind("click", function(){
+			$("<span>增加1成功</span>").insertBefore("div:first");//使用bind方法绑定，bind方法本质上也是on方法实现的
+		});
+	// $("button").bind("click", function(){
+	// 			$("div").unbind("click");//使用unbind解绑
+	// 	});
+	// $("div").one("click", function(){//使用one方法绑定
+	// 		$("<span>增加1成功</span>").insertBefore("div:first");
+	// 	});
+	// $("div").on("click",function(event,msg1,msg2){
+	// 	alert(msg1+"和"+msg2);
+	// })
+	// $("div").trigger("click",["信息1","信息2"]);//使用trigger方法绑定，可传递参数
+</script>
+</body>
+</html>

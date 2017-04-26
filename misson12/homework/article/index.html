@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>千万级别数据的mysql数据表优化 - 数据库技术文章 - 学编程 - 自学编程第一站 - Powered By EduSoho</title>
+
+  <!-- Bootstrap -->
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    .navbar-default .row img{
+      position: relative;
+      top:-33%;
+      height: 200%;
+    }
+    #tabBanner1{
+      border: 0;
+    }
+    #tabBanner1 li.active a{
+      border: 0;
+    }
+
+    #mainContent>.row>.col-md-7,#mainContent>.row>.col-md-4>.side-content{
+      margin: 20px;
+      text-align: left;
+      border: 1px solid #eee;
+    }
+    .comment span{
+      margin: 20px;
+      background: #eee;
+    }
+
+    footer{
+      background: #1e3346;
+      color: white;
+      height: 40px;
+      line-height: 40px;
+    }
+  </style>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>  
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="col-md-4">
+            <a class="navbar-brand" href="#">
+              <img src="http://www.xuebiancheng.cn/files/system/2016/07-21/17193573d3cc852930.JPG?7.5.12" alt="学编程"/>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="搜索">                   
+              </div>
+              <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>              
+              <li><a href="#" data-toggle="modal" data-target="#myModal">注册</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部课程<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章资讯<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#">学习小组</a></li>
+            <li><a href="#">捐助本站</a></li>
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="#banner1" aria-controls="banner1" role="tab" data-toggle="tab">热门文章频道</a></li>
+            <li role="presentation" class="active"><a href="#banner2" aria-controls="banner2" role="tab" data-toggle="tab">技术文章</a></li>
+            <li role="presentation"><a href="#banner3" aria-controls="banner3" role="tab" data-toggle="tab">行业咨询</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="banner1">...</div>
+            <div role="tabpanel" class="tab-pane active" id="banner2">
+              <ul class="nav nav-tabs" id="tabBanner1">
+                <li role="presentation" class="active"><a href="#">全部</a></li>
+                <li role="presentation"><a href="#">前端</a></li>
+                <li role="presentation"><a href="#">数据库</a></li>
+                <li role="presentation"><a href="#">服务端</a></li>
+              </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="banner3">...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="mainContent">
+        <div class="row">
+          <div class="col-md-7">
+            <ol class="breadcrumb">
+              <li><a href="#">热门文章</a></li>
+              <li><a href="#">技术文章</a></li>
+              <li><a href="#">数据库</a></li>
+              <li class="active">正文</li>
+            </ol>
+            <div>
+              <div class="page-header">
+                <h4>千万级别数据的mysql数据表优化<br>
+                <small>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs" aria-label="Left Align"><span class="glyphicon glyphicon-eye-open" aria-hidden="true">840</span></button>
+                    <button type="button" class="btn btn-default btn-xs" aria-label="Center Align"><span class="glyphicon glyphicon-comment" aria-hidden="true">0</span></button>
+                    <button type="button" class="btn btn-default btn-xs" aria-label="Right Align"><span class="glyphicon glyphicon-heart" aria-hidden="true">1</span></button>
+                  </div>
+                </small>
+                </h4>
+            </div>
+            <p>出发点
+比如，现在有这么一个问题，常见的一个面试题：
+有一张users表，数据量在五千万以上，存在一条查询语句：
+<pre>
+SELECT * FROM users WHERE name LIKE '%明%' AND sex='男' AND age=32 AND created_at BETWEEN 1388505600 AND 1420041600;
+</pre>
+就是说从users表中找出创建时间在14年到15年之间的年龄在32岁，名字中带有‘明’字的男性用户
+
+追溯到数据表的设计，sql查询语句的调优，并且需要考虑到这种大表的数据插入时候的注意事项,数据分页及未来数据表管理时可能遇见的问题及解决方案
+
+本文将会从存储层，设计层，sql语句层和架构层进行优化：
+
+存储层
+存储引擎的选取：
+
+这里只展开InnoDB和MyIsam(选择哪个存储引擎需要判断当前的业务场景)
+
+MyIsam表：
+
+支持表级锁，锁的颗粒度比较大，所以被锁定的资源的争用情况会比其他的锁定级别会多，会降低并发处理的能力。 解决方法是可以设置 Concurrent Insert(并发插入)
+
+在插入新的数据的时候，新数据会被追加到文件的末尾，但是当执行了update或delete等操作的时候，之前的数据的所在位置就会没有内容。 这样，在数据的新增的时候速度相对会比较快
+
+数据表的存储位置：在mysql安装目录/data/数据库名称下，分为数据表结构，数据表索引，数据表数据三个文件分别进行存储。这种索引和数据相分离，是通过物理地址进行关联的，这种索引结构也叫做‘非聚合型索引’，所以可以选择直接拷贝对应表的文件进行数据表的备份
+
+支持数据表的压缩，牺牲数据表的更新操作，换取快速的查找速度。在CMD中执行myisamchk.exe -rq 表名。 使用命令myisamchk.exe --unpack 表名 进行解压缩。然后使用flush table 表名进行刷新数据表
+
+支持全文索引
+
+不支持外键
+
+表的具体行数：保存有表的具体行数。在针对一个140万的数据表的时候，count(*)的速度很快：0.0003秒
+
+总结：myisam是mysql最为古老的存储引擎之一，对于以读为主的非事务性系统来说，myisam无疑是最优先考虑的对象
+
+InnoDB表
+
+支持行级锁，带来的性能方面的锁好比较大，但是整体的并发性能却远远优于MyIsam表。但是如果使用不当可能会发生死锁，关于避免死锁的 问题，并没有深入研究过，大体的发生死锁的原因就是：由多个并发事务；每个事物都持有了锁；每个事务为了完成相关的逻辑都需要继续持有锁；多个事务之间产 生加锁的循环等待－>最终形成死锁
+
+支持外键，支持事务。
+
+在进行select count(*)的时候，如果数据库中只存在一个primary key 的时候，执行count的时候速度会很慢，一张140万的数据表，执行的速度是6s多。但是myisam的count时间却只有0.00几秒。但是如果在 InnoDB表中在添加一个索引的时候，速度就会比较快。详情看：http://xuebiancheng.cn/article/53
+
+数据表内容的存储位置：.frm文件用来存储表结构定义相关的元数据，表的索引和数据存放在一起。用户可以自定义，默认的初始化存储位置（windows）是在c:/programData/mysql 下。这种数据和索引存储在一个文件中的索引结构叫做‘聚合型’索引
+
+字段的存储的类型的类型推荐：
+
+字段应该优先选择 数值型进行存储，整形数据比起字符型处理的开销会更小，比如性别，是否这些可以使用enum进行存储。ip地址，时间等字段也存储成整形。可以使用数值型和枚举类型的字段进行不使用字符型进行存储
+
+越小的数据类型越好。越小的数据类型在硬盘，cpu缓存和内存上的使用空间都更小，处理起来会更快
+
+尽量避免使用null。在创建数据表的时候应该指定列为 NOT NULL ,然后设定默认值
+
+设计层
+适当的添加索引
+
+添加索引可以增快数据查询的速度，但是对应的在数据的写入的时候需要去维护索引的数据，所以在数据的插入和更新等操作时速度回变慢。所以添加索引需要注意在常用的查询字段上面进行添加
+
+ 这对于这里的需求来讲，创建一个name,age,created_at字段上的联合索引，在后面的查询条件的排列的地方先查询name字段，然后是age字段，然后created_at字段，最后在是sex字段
+
+具体的关于索引的内容可以看 http://xuebiancheng.cn/article/52
+
+适时的进行分表和分区
+
+分区
+
+分区就是将整个的业务模块分散到不同的服务器上进行存储，比如说用户模块，文章模块，相册模块等分别存在不同的服务器上完成分区
+
+水平分表
+
+物理分表：可以根据求余的方式或者hash或根据当前月份等方式进行
+
+手动创建多个数据表,主要是根据当前记录的索引值进行判断该数据所在的位置
+
+数据查询
+<pre>
+$id = $_GET['id'];
+$mod = $id%5;
+$sql = "SELECT * from goods_$mod WHERE id=$id";
+新增数据　
+//在新增数据的时候需要一张临时表去判断当前表中的最大id值为多少，选择对应的数据存储的数据表
+
+$sql = "INSERT INTO `临时表` values null";
+$new_id = "SELECT mysql_insert_id()";
+$mod = $new_id%5;
+$sql = "INSERT INTO goods_$mod VALUES ($new_id, 内容1, 内容2)";
+</pre>
+逻辑分表（严格上来讲，是在数据库的逻辑层进行分区）
+
+为了保证分区时的查询效率，必须保证添加的分区字段为主键或unique key
+
+在新建了分区之后，在查看数据表的存储文件的结构可以发现，数据表的索引和数据内容已经被单独拿出去存储了
+
+key分区(求余)
+<pre>
+ CREATE TABLE test_key(
+     id int not null auto_increment,
+     title varchar(32) not null default '',
+     price decimal(10,2) not null default 0,
+     created_at datetime not null,
+     PRIMARY  KEY (id,created_at)
+ ) engine=myisam charset=utf8
+ partition by key(id) partitions 5;
+1
+</pre>
+hash分区(求余)
+<pre>
+ CREATE TABLE test_hash(
+     id int not null auto_increment,
+     title varchar(32) not null default '',
+     price decimal(10,2) not null default 0,
+     created_at datetime not null ,
+     PRIMARY  KEY (id,created_at)
+ ) engine=myisam charset=utf8
+ partition by hash(month(created_at)) partitions 5;
+ </pre>
+list分区(范围)
+<pre>
+ CREATE TABLE test_list(
+     id int not null auto_increment,
+     title varchar(32) not null default '',
+     price decimal(10,2) not null default 0,
+     created_at datetime NOT NULL,
+     PRIMARY  KEY (id,created_at)
+ ) engine=myisam charset=utf8
+ partition by list(month(created_at))(
+     partition spring values in (3,4,5),
+     partition summer values in (6,7,8),
+     partition autumn values in (9,10,11),
+     partition winter values in (12,1,2)
+ );
+ </pre>
+range分区(范围)
+<pre>
+ CREATE TABLE test_list(
+     id int not null auto_increment,
+     title varchar(32) not null default '',
+     price decimal(10,2) not null default 0,
+     created_at datetime NOT NULL,
+     PRIMARY  KEY (id,created_at)
+ ) engine=myisam charset=utf8
+ partition by range(year(created_at))(
+     partition oldest values less than 1980,
+     partition old values less than 1990,
+     partition middle values less than 2010,
+     partition new values less than 2010
+ );
+ </pre>
+垂直分表
+
+对于一张很大的数据表，比如user表，username,password,age等字段是经常被使用到的字段，可以放在一张表中，表中其他不太常用的字段(不会拿来当作查询条件的字段)，如person_info,profile等可以拿出到一张单独的表中进行存储，这样可以保证主表在数据量很大的时候性能下降不会太严重。
+
+架构层
+1.配置mysql集群，完成数据的读写分离
+
+ 基本原理：1.master记录自己改变了的记录的二进制文件（binlog），在每个事务执行完毕之后，将这些改变记录在二进制文件 中；2.在slave上存在两个进程：读取master上的二进制文件到自己的中继文件中，在中继文件中读取更新的事件内容并同步到自己的数据库中
+
+可以使用mysql官方提供的代理层产品完成MysqlProxy相关的功能：http://xuebiancheng.cn/article/54
+
+sql语句层进行优化
+从给定的题目出发
+
+字段：在进行数据的查询的时候，在查询字段的选择上，使用 对应的字段代替 select *
+
+条件：在sql语句的条件的书写的时候，条件的排列顺序应该是以字段上的数据差异性较大的列排列在最左端，也就是最能够区分出更少数据的列优先排列在最左端。比如说在常规的业务逻辑下，age字段应该在sex 字段的左侧
+
+分页：在后台的数据进行分页的时候，每页显示150条数据，在查看10000页的数据的时候肯定会很慢，使用 where id > 1500000 limit 150的写法代替 limit 10000,150 .这样可以极大的提高查询的速度
+
+在只查询一条数据的时候，使用limit 1,这样mysql在进行搜索的时候，找到了一条数据就不会在乡下进行搜索
+
+子查询：在执行一条资查询：select ... from t1 where t1.uid IN (select uid from t2 ),这条子查询相当于select ... from t1 where exists(select 1 from t2 where t2.uid=t1.id).这样一来相当于将两个结果集中的数据做乘法，相比于连接查询，速度会很慢
+
+连表查询：将复杂的联表sql语句改写成针对于单表的sql查询语句
+
+注意数据的饮食转换。比如说查询的字段的类型为varchar,那么在写where条件的时候，where name='11' 会比 where name=11更快，因为传入的字段类型是int,会导致程序进行全表扫描</p>
+
+
+
+
+
+            </div>
+            <div>
+              标签：<button type="button" class="btn btn-success">MYSQL</button><br>
+              <div class="btn-group">
+                   
+                    <button type="button" class="btn btn-default " aria-label="left Align"><span class="glyphicon glyphicon-heart" aria-hidden="true">1</span></button>
+                    <button type="button" class="btn btn-default " aria-label="Right Align"><span class="glyphicon glyphicon-share" aria-hidden="true">0</span></button>
+                </div>
+            </div>
+             
+            <hr>
+            <div class="text-center">
+              
+              <span>你还没有登录，请先<a href="">登录</a>或<a href="">注册</a>！</span><br>
+              <span>还没有人评论，欢迎说说您的想法！</span>
+            </div>
+
+
+
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="side-content">
+              <div class="page-header">
+                <h4>热门热门文章</h4>
+              </div>
+                <ol >
+                  <li >php实现递归的三种基本方式...</li>
+                  <li >Mysql 中创建索引和索引的使用问题...</li>
+                  <li >前端开发者应该知道的 CSS 小技巧...</li>
+                  <li >纯CSS完美实现垂直水平居中的6种方式.../li>
+                  <li >linux下的环境变量详解...</li>
+                  <li>千万级别数据的mysql数据表优化...</li>
+                </ol>
+            </div>
+            <div class="side-content">
+              <div class="page-header">
+                <h4>热门标签</h4>
+              </div>
+                <button type="button" class="btn btn-success">thinkphp</button>
+                <button type="button" class="btn btn-success">Mongodb</button>
+                <button type="button" class="btn btn-success">photoshop</button>
+                <button type="button" class="btn btn-success">hbase</button>
+                <button type="button" class="btn btn-success">hdfs</button>
+                <button type="button" class="btn btn-success">微信公众平台</button>
+            </div>
+            <div class="side-content">
+              <div class="page-header">
+                <h4>热门评论</h4>
+              </div>
+                <div class="comment">
+                  <div class="page-header">
+                    <h5>sxhall 评论于 linux下的环境变量详解</h5>
+                  </div>
+                  <span>文章写的不错，顶一个</span>
+                </div>
+                <div class="comment">
+                  <div class="page-header">
+                    <h5>sxhall 评论于 linux下的环境变量详解</h5>
+                  </div>
+                  <span>文章写的不错，顶一个</span>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <span>Powered by EduSoho v7.5.12 ©2014-2017 好知网   课程存档 课程内容版权均归学编程所有 京ICP备13042384号</span>
+      </footer>
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="./bootstrap/js/bootstrap.min.js"></script>
+    </body>
+    </html>

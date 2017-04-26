@@ -1,0 +1,16 @@
+object_article/public/navbar.php
+object_article/public/acl.php
+object_article/public/logout.php
+object_article/public/admin/public/function.php
+object_article/public/admin/public/topbar.php
+object_article/public/admin/public/sidebar.php
+
+问题1 在前端页面alterUser中 上面的搜索文章内容位置不对 不知道怎么调
+问题2 在前端页面index.php中，第82行 下面这行能不能用=号来判断 WHERE category LIKE'%{$checkCategory}%'写成 category='%{$checkCategory}%'时候会在index后面没有参数时候返回空值，如何修改？如果用LIKE的话担心以后会有命名类似的分类，然后会出bug。]
+问题3  在管理页面doAdduser.php中，第11行alert('密码与确认密码不想等')中无法正常输出，还没输出就跳转到制定页面了
+说明：1文章详情页是因为老师你把问题2中的category改成=号了所以产生了bug，正常的index.php里面有个点击阅读，点进去就是详情页了，主体为readArticle.php
+说明2 我是说alterUser中的搜索框css样式不对啦，那个绝对路径会根据项目已经调好了，麻烦帮看下css样式表
+说明3 那个前后端是分开的，如果在前端注册那么不是管理员是无法登录后端的，前端的isAdmin字段都为1，只有isAdmin=2才能进入后端
+感谢老师
+
+user中isAdmin字段 1 为普通用户 2为管理员

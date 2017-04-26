@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<script type="text/javascript" src="./unslider.js"></script>
+	<link rel="stylesheet" type="text/css" href="./unslider.css">
+	<title>图片轮播</title>
+	<style type="text/css">
+		*{
+			/*background: gray;*/
+		}
+		.banner { position: relative; overflow: auto;}
+    	.banner li { list-style: none; }
+        .banner ul li { float: left; }
+        .banner ul li img{ width: 100%; height: 300px;}
+	</style>
+</head>
+<body>
+	<div class="banner">
+	    <ul>
+	        <li><img src="./img/1.jpg"></li>
+	        <li><img src="./img/2.jpg"></li>
+	        <li><img src="./img/3.jpg"></li>
+	    </ul>
+	  	<a href="#" class="unslider-arrow prev">Previous slide</a>
+		<a href="#" class="unslider-arrow next">Next slide</a>
+	</div>
+	
+<script type="text/javascript">
+	$(function() {
+	    var unslider = $('.banner').unslider({
+			speed: 500,               //  The speed to animate each slide (in milliseconds)
+			delay: 3000,              //  The delay between slide animations (in milliseconds)
+			complete: function() {},  //  A function that gets called after every slide animation
+			keys: false,               //  Enable keyboard (left, right) arrow shortcuts
+			dots: true,               //  Display dot navigation
+			fluid: true             //  Support responsive design. May break non-responsive designs
+		};);
+
+		//var unslider = $('.banner').unslider();
+
+		$('.unslider-arrow').click(function() {
+	        var fn = this.className.split(' ')[1];
+	        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+	        unslider.data('unslider')[fn]();
+	    });
+
+		
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+1、为什么在register中，password不能直接像username那样直接写个post在sql语句中，为什么？
+2、在login。php中，查询语句如果查不到结果，能不能有个返回值，直接判断。
+3、在link。php中，数据库不用密码也能登录。
+4、在login。php中，登录失败就无法有输出了，怎么调整？
+5、phpmyadmin安装了但里面只有information_schema test，两张表。找不到自己建立的xuebiancheng库和表
+6、js验证中，如果使得输入框再次获得焦点，就会重复弹出。代码已经写在js文件里面，注释掉了。

@@ -1,0 +1,134 @@
+*{
+					margin:0;
+					padding:0;
+				}
+				.clear{
+					width:100%;
+					height:5px;
+					clear:both;	
+				}
+				.header_box{
+					width:100%;
+					height:74px;
+				}
+				.header_box1{
+					float:left;
+					width:25%;
+					height:100%;
+				}
+				.header_box2{
+					float:left;
+					width:50%;
+					height:100%;
+				}
+				.header_box3{
+					text-align:center;
+					font-size:20px;
+					float:left;
+					width:25%;
+					height:100%;
+					line-height:74px;
+				}
+				.header_box3 a:link{ 
+						color:black;
+					}
+				.header_box3 a:visited{
+						color:black;
+					}
+				.header_box3 a:hover{
+						color:blue;
+					}
+				.header_box3 a:active{
+						color:blue;
+					}
+				.header_box3 a{
+						text-decoration:none;
+					}
+				
+				.hr_blue{
+					background-color:blue;
+					border:none;
+					height:1px;	
+				}
+				.nav_box{
+					width:100%;
+					height:37px;
+				}
+				.nav_box1{
+					float:left;
+					width:8.33333%;
+					height:37px;
+					color:gray;
+					text-align:center;
+					line-height:37px;
+				}
+				.section_box{
+					width:100%;
+					height:700px;
+					background:#F4F5F3;
+					border-style:solid;
+					border-color:#F4F5F3;
+					border-width:1px 0px 1px 0px;
+				}
+				.section_box1{
+					width:30%;
+					height:600px;
+					border:1px solid #ccc;
+					margin:50px auto 0px;
+					background:white;
+					font-family : 微软雅黑,宋体;
+                    font-size : 18px;
+				}
+				.section_box1 a.link,.section_box1 a:visited,.section_box1 a.hover,.section_box1 a.active{
+					color:red;
+				}
+				.section_box1 a{
+					text-decoration:none;
+				}
+				.section_box1 input{
+					width:80%; 
+					height:25px; 
+					border-radius:5px;
+				}
+				.section_box1 span{
+					color:green;
+				}
+				.section_box1 img{
+					height:25px;/*请问老师怎样让验证码图片垂直居中，感谢。*/
+				}
+				.section_box2{
+					width:50%;
+					height:60px;
+					float:left;
+					line-height:60px;
+					text-align:center;
+				}
+				#inputbox{
+					display:block;
+					margin:0 auto;
+					width:80%;
+					height:50px;
+					background:#89cff0;
+					font-size:32px;
+					font-family : 微软雅黑,宋体;
+					color:white;
+					border:none;
+					border-radius:5px;
+				}
+				footer{
+					background:#336666;
+					color:white;
+					height:60px;
+					width:100%;
+					line-height:60px;
+					text-align:center;
+				}
+				footer a:link,footer a:visited{
+					color:blue;
+				}
+				footer a:hover,footer a:active{
+					color:white;
+				}
+				footer a{
+					text-decoration:none;
+				}

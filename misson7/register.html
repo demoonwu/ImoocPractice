@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+	<head>
+		<title>验证码注册</title>
+		<meta charset='utf-8'/>
+	</head>
+	<body>
+		<form action='' method="post">
+			验证码：<input type="text" name="varificationCode" size=30/><img id="codeimg" src="./verificationcode.php" height="30"/>
+		</form>
+		<script>
+			document.getElementById('codeimg').onclick=function(){
+				this.src=this.src+'?'+Math.random();
+			};
+		</script>
+	</body>
+</html>

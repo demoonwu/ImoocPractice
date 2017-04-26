@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS位置</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<style type="text/css">
+		.divDemo{
+			border: 1px solid blue;
+			width: 200px;
+			height: 200px;
+			position: relative;
+			left: 20px;
+			top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<div class="divDemo">div1</div>
+	<button>SUB1</button>
+<script type="text/javascript">
+	$("button:eq(0)").click(function(){
+		alert($(".divDemo:last").offset().top)//使用offset方法获取变量相对于body的偏移
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    #carousel-example-generic{
+      margin-top: 50px;
+      height: 500px;
+      background-color: #ccc;
+    }
+    #carousel-example-generic .item{
+      font-size: 20px;
+      height: 500px;
+      background-color: #ccc;
+    }
+    #carousel-example-generic .item span{
+      color:#000;
+    }
+    #carousel-example-generic img{
+      width: 100%;
+/*      这里不设置高度即可实现自动缩放
+*/  }
+    .container p{
+      word-wrap: break-word;
+    }
+</style>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>  
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top nav-f">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">某管理系统</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">首页</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">功能<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">业务功能</li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">信息功能</li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#">帮助</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="用户名">                   
+              <input type="text" class="form-control" placeholder="密码">
+            </div>
+            <button type="submit" class="btn btn-default">登录</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target="#myModal">弹出框</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./images/chrome-big.jpg" alt="...">
+          <div class="carousel-caption">
+            <span>Chrome</span>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/firefox-big.jpg" alt="...">
+          <div class="carousel-caption">
+            <span>Firefox</span>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/ie-big.jpg" alt="...">
+          <div class="carousel-caption">
+            <span>IE</span>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/safari-big.jpg" alt="...">
+          <div class="carousel-caption">
+            <span>Safari</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">上一页</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">下一页</span>
+      </a>
+    </div>
+    <div class="container text-center">
+     <div class="row">
+
+        <div class="col-md-4">
+          <img src="./images/chrome-logo-small.jpg"/>
+          <p>Chrome</p>
+          <p>ChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChrome</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="./images/chrome-logo-small.jpg"/>
+          <p>Chrome</p>
+          <p>ChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChrome</p>
+        </div>
+
+        <div class="col-md-4">  
+          <img src="./images/chrome-logo-small.jpg"/>
+          <p>Chrome</p>
+          <p>ChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChrome</p>
+        </div>
+        
+      </div>
+    </div>
+    <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <img src="./images/chrome-logo-small.jpg"/>
+      <p>Chrome</p>
+      <p>ChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChromeChrome</p>
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div>
+
+<!-- 以下为弹出框等js内容Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">弹出框</h4>
+      </div>
+      <div class="modal-body">
+        弹弹弹        弹弹弹
+        弹弹弹
+        弹弹弹
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+  </body>
+  </html>

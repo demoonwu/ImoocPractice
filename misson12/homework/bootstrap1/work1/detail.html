@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文章列表页</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
+
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container header-padd">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#example-navbar-collapse">
+					<span class="sr-only">切换导航</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#search-navbar-collapse">
+					<a href="#">我的账户</a>
+				</button>
+				<a href="#" class="navbar-brand logo">学编程</a>
+			</div>
+			<div class="row collapse navbar-collapse" id="search-navbar-collapse">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group search">
+						<input type="text" name="#" class="form-control search" placeholder="搜索">
+						<button class="btn btn-link" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="progress-diy"></div>
+		<div class="container">
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown" >
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">全部课程<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">前端开发</a></li>
+							<li><a href="#">后端开发</a></li>
+							<li><a href="#">移动开发</a></li>
+							<li><a href="#">数据库</a></li>
+						</ul>
+					</li>
+					<li  class="dropdown" data-toggle="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">文章咨询<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">技术文章</a></li>
+							<li><a href="#">行业资讯</a></li>
+						</ul>
+					<li><a href="#">学习小组</a></li>
+					<li><a href="#" id="mytab">捐助本站</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="nav-list">
+			<div class="navbar sec-nav" role="navigation">
+				<ul class="nav nav-tabs nav-tabs-justified">
+					<li><a data-toggle="tab" href="#hot">热门文章频道</a></li>
+					<li class="active"><a data-toggle="tab" href="#tec">技术文章</a></li>
+					<li><a data-toggle="tab" href="#news">行业资讯</a></li>
+				</ul>
+				<div class="thr-nav">
+					<div class="tab-content">
+					    <div id="hot" class="tab-pane fade">
+					    </div>
+					    <div id="tec" class="tab-pane fade in active">
+					      <ul class="nav nav-tabs nav-tabs-justified">
+					      	<li><a href="">全部</a></li>
+					      	<li><a href="">前端</a></li>
+					      	<li><a href="">数据库</a></li>
+					      	<li><a href="">服务端</a></li>
+					      </ul>
+					    </div>
+					    <div id="news" class="tab-pane fade">
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container clearfix">
+		<div class="row">
+			<div class="col-md-8 pull-left">
+				<div class="list">
+					<ol class="breadcrumb list-unstyled">
+						<li><a href="#">热门文章</a></li>
+						<li><a href="#">技术文章</a></li>
+						<li><a href="#">服务端</a></li>
+						<li><a href="#">正文</a></li>
+					</ol>
+					<div class="media">
+						<div class="pull-left">
+							<div class="date"><span>18</span><br><span style="font-size: 8px;">08月</span></div>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading" style="margin-top: 10px">linux下的环境变量详解</h3>
+							<div class="sns" style="margin-top: 10px">
+								<span><span class="glyphicon glyphicon-eye-open"></span><span>&nbsp;1065</span></span>
+								<span><span class="glyphicon glyphicon-comment"></span><span>&nbsp;2</span></span>
+								<span><span class="glyphicon glyphicon-heart"></span><span>&nbsp;0</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<h3>环境变量简介</h3>
+						<p>
+							有木有遇到过这样的情况，你明明刚刚安装了一个程序，可是在shell里执行命令的时候就是报错说找不到command。哦哦，后来才知道原来是没有设置PATH环境变量。<br>PATH环境变量决定了shell将要在那些目录寻找命令或者程序，PATH的值是一系列目录，当你运行一个命令的时候，linux在这些目录下进行搜索编译链接。<br>
+							我们可以通过修改~/.bash_profile文件来新增或者添加PATH环境变量。其格式为：
+						</p>
+						<pre style="color: #919191"><code style="white-space: initial;"><span>PATH</span>=<span>$PATH</span><span>:&lt;PATH</span> <span>1</span>&gt;<span>:&lt;PATH</span> <span>2</span>&gt;<span>:&lt;PATH</span> <span>3</span>&gt;<span>:------</span><span>:&lt;PATH</span> <span>N</span>&gt;</code></pre>
+						<p>
+							你可以自己加上指定的路径，中间用冒号隔开。环境变量更改后，在用户下次登陆时生效，如果想立刻生效，则可执行下面的语句：$ source .bash_profile。<br>
+							Linux是一个多用户的操作系统。每个用户登录系统后，都会有一个专用的运行环境。通常每个用户默认的环境都是相同的，这个默认环境实际上就是一组环境变量的定义。用户可以对自己的运行环境进行定制，其方法就是修改相应的系统环境变量。
+						</p>
+						<h3>设置环境变量</h3>
+						<p>
+							环境变量是和Shell紧密相关的，用户登录系统后就启动了一个Shell。对于Linux来说一般是bash，但也可以重新设定或切换到其它的Shell（使用chsh命令）。<br>
+							根据发行版本的情况，bash有两个基本的系统级配置文件：/etc/bashrc和/etc/profile。这些配置文件包含两组不同的变 量：shell变量和环境变量。前者只是在特定的shell中固定（如bash），后者在不同shell中固定。很明显，shell变量是局部的，而环境 变量是全局的。环境变量是通过Shell命令来设置的，设置好的环境变量又可以被所有当前用户所运行的程序所使用。对于bash这个Shell程序来说， 可以通过变量名来访问相应的环境变量，通过export来设置环境变量。<br>
+							注：Linux的环境变量名称一般使用大写字母
+						</p>
+						<h3>实例</h3>
+						<p>
+							<ol class="list-unstyled" style="padding-left: 40px">
+								<li>
+								<p>使用命令echo显示环境变量<br>
+								echo $HOME<br>
+								/home/kevin</p>
+								</li>
+								<li>
+								<p>设置一个新的环境变量<br>
+								export MYNAME=”my name is kevin”</p>
+								</li>
+								<li>
+								<p>修改已存在的环境变量<br>
+								MYNAME=”change name to jack”</p>
+								</li>
+								<li>
+								<p>使用env命令显示所有的环境变量<br>
+								env<br>
+								HOSTNAME=localhost.localdomain<br>
+								SHELL=/bin/bash<br>
+								TERM=xterm<br>
+								HISTSIZE=1000<br>
+								SSH_CLIENT=192.168.136.151 1740 22<br>
+								QTDIR=/usr/lib/qt-3.1<br>
+								SSH_TTY=/dev/pts/0<br>
+								……</p>
+								</li>
+								<li>
+								<p>使用set命令显示所有本地定义的Shell变量<br>
+								set<br>
+								BASH=/bin/bash<br>
+								BASH_ENV=/root/.bashrc<br>
+								……</p>
+								</li>
+								<li>
+								<p>使用unset命令来清除环境变量<br>
+								export TEMP_KEVIN=”kevin”<br>
+								env | grep TEMP_KEVIN<br>
+								unset TEMP_KEVIN<br>
+								env | grep TEMP_KEVIN</p>
+								</li>
+								<li>
+								<p>使用readonly命令设置只读变量<br>
+								注：如果使用了readonly命令的话，变量就不可以被修改或清除了。<br>
+								export TEMP_KEVIN ="kevin"<br>
+								readonly TEMP_KEVIN<br>
+								env | grep TEMP_KEVIN<br>
+								unset TEMP_KEVIN<br>
+								-bash: unset: TEMP_KEVIN: cannot unset: readonly variable<br>
+								TEMP_KEVIN ="tom"<br>
+								-bash: TEMP_KEVIN: readonly variable</p>
+								</li>
+								<li>
+								<p>通过修改环境变量定义文件来修改环境变量。<br>
+								需要注意的是，一般情况下，仅修改普通用户环境变量配置文件，避免修改根用户的环境定义文件，因为那样可能会造成潜在的危险。<br>
+								cd ~ #到用户根目录下<br>
+								ls -a #查看所有文件，包含隐藏的文件<br>
+								vi .bash_profile #修改用户环境变量文件<br>
+								例如：<br>
+								编辑你的PATH声明，其格式为：<br>
+								PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;<br>
+								你可以自己加上指定的路径，中间用冒号隔开。<br>
+								环境变量更改后，在用户下次登陆时生效。<br>
+								如果想立刻生效，则可执行下面的语句：$source .bash_profile<br>
+								需要注意的是，最好不要把当前路径”./”放到PATH里，这样可能会受到意想不到的攻击。<br>
+								完成后，可以通过$ echo $PATH查看当前的搜索路径。这样定制后，就可以避免频繁的启动位于shell搜索的路径之外的程序了。</p>
+								</li>
+							</ol>
+						</p>
+						<h3>总结</h3>
+						<h3>Linux的变量种类</h3>
+						<p>
+							按变量的生存周期来划分，Linux变量可分为两类<br>
+							永久的：需要修改配置文件，变量永久生效。<br>
+							临时的：使用export命令行声明即可，变量在关闭shell时失效。
+						</p>
+						<h3>设置变量的三种方法</h3>
+						<p>
+							1.在/etc/profile文件中添加变量【对所有用户生效（永久的）】
+						</p>
+						<pre style="color: #919191"><code style="white-space: initial;"><span>export</span> CLASSPATH=./JAVA_HOME/lib;<span>$JAVA_HOME</span>/jre/lib</code></pre>
+						<p>
+							注：修改文件后要想马上生效还要运行# source /etc/profile不然只能在下次重进此用户时生效。<br>
+							2.在用户目录下的.bash_profile文件中增加变量【对单一用户生效（永久的）】<br>
+							例如：编辑用户目录下的.bash_profile
+						</p>
+						<pre style="color: #919191"><code style="white-space: initial;"><span>export</span> CLASSPATH=./JAVA_HOME/lib;<span>$JAVA_HOME</span>/jre/lib</code></pre>
+						<p>
+							注：修改文件后要想马上生效还要运行$ source ~/.bash_profile不然只能在下次重进此用户时生效。<br>
+							3.直接运行export命令定义变量【只对当前shell（BASH）有效（临时的）】
+						</p>
+					</div>
+					<div class="article-tag">
+						标签：
+						<span class="label label-success">linux</span>
+					</div>
+					<div class="article-sns">
+						<span><span class="glyphicon glyphicon-heart"></span><span>&nbsp;0</span></span>
+						<span><span class="glyphicon glyphicon-share"></span><span></span></span>
+					</div>
+					<p style="text-align: center;color: #919191">
+						你还没有登录，请先<a href="#" style="color: #188eee">登录</a>或<a style="color: #188eee" href="#">注册</a>！
+					</p>
+					<div class="media">
+						<div class="pull-left">
+							<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+						</div>
+						<div class="media-body article-com">
+							<p class="media-heading article-com"><span style="color: #188eee">sxhall </span> &middot; 11-04</p>
+							<p>文章写的不错，顶一个</p>
+							<div class="thread">
+								<span class="glyphicon glyphicon-thumbs-up">(2)</span>
+								<span>回复<span>(0)</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="media">
+						<div class="pull-left">
+							<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+						</div>
+						<div class="media-body article-com">
+							<p class="media-heading article-com"><span style="color: #188eee">小凡 </span> &middot; 10-17</p>
+							<p>文章不错</p>
+							<div class="thread">
+								<span class="glyphicon glyphicon-thumbs-up">(2)</span>
+								<span>回复<span>(1)</span></span>
+							</div>
+							<div class="media">
+								<div class="pull-left">
+									<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+								</div>
+								<div class="media-body article-com">
+									<p class="media-heading article-com"><span style="color: #188eee">小凡 </span> &middot; 10-17</p>
+									<p>测试</p>
+									<div class="thread">
+										<span class="glyphicon glyphicon-thumbs-up">(1)</span>
+										<span>回复<span></span></span>
+									</div>
+								</div>
+								<p style="text-align: center;color: #919191">
+									你还没有登录，请先<a href="#" style="color: #188eee">登录</a>或<a style="color: #188eee" href="#">注册</a>！
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 pull-left">
+				<div class="panel panel-default ri-list">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							热门文章推荐
+						</h4>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled">
+							<li><span class="num pull-left">1</span><a href="#">php实现递归的三种基本方式...</a></li>
+							<li><span class="num pull-left">2</span><a href="#">Mysql 中创建索引和索引的使用问题...</a></li>
+							<li><span class="num pull-left">3</span><a href="#">前端开发者应该知道的 CSS 小技巧...</a></li>
+							<li><span class="num pull-left">4</span><a href="#">纯CSS完美实现垂直水平居中的6种方式...</a></li>
+							<li><span class="num pull-left">5</span><a href="#">linux下的环境变量详解...</a></li>
+							<li><span class="num pull-left">6</span><a href="#">千万级别数据的mysql数据表优化...</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default ri-list">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							热门标签
+						</h4>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled list-inline">
+							<li><span class="label label-success">thinkphp</span></li>
+							<li><span class="label label-success">Mongodb</span></li>
+							<li><span class="label label-success">photoshop</span></li>
+							<li><span class="label label-success">hbase</span></li>
+							<li><span class="label label-success">hdfs</span></li>
+							<li><span class="label label-success">hadoop</span></li>
+							<li><span class="label label-success">jquery插件</span></li>
+							<li><span class="label label-success">jquery</span></li>
+							<li><span class="label label-success">微信公众平台</span></li>
+							<li><span class="label label-success">swift</span></li>
+							<li><span class="label label-success">游戏开发</span></li>
+							<li><span class="label label-success">手机游戏开发</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default ri-list">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							热门评论
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img src="./img/avatar.png" style="width: 50px;border-radius: 25px">
+							</div>
+							<div class="media-body">
+								<p class="media-heading">小凡 <span style="color: #c1c1c1">评论于</span> linux下的环境变量详解</p>
+							</div>
+							<div class="content-com">
+								文章写的不错，顶一个
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>Powered by <a href="#">EduSoho v7.5.12</a> ©2014-2017 <a href="#">好知网   课程存档</a> 课程内容版权均归<a href="#">学编程</a>所有 <a href="#">京ICP备13042384号</a></p>
+	</div>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="text/javascript">
+	$('#mytab a').click(function(e){
+		e.preventDefault();
+		$(this).tab('show');
+	})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<meta charset="utf-8">
+	<title>滑动效果</title>
+	<style type="text/css">
+		#divDemoShowAndHide{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="divDemoShowAndHide">box1</div>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>轮播Toggle</button>
+<script type="text/javascript">
+	$("button:first").click(function(){
+		$("#divDemoShowAndHide").css("background","red").slideDown(2000);
+	});
+	$("button:odd").click(function(){
+		$("#divDemoShowAndHide").css("background","blue").slideUp(2000);
+	});
+	
+	$("button:last").click(function(){
+		$("#divDemoShowAndHide").css("background","yellow").slideToggle(2000);
+	});
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery中操纵元素位置</title>
+	<script type="text/javascript" src="./jQuery/jquery.js"></script>
+	<style type="text/css">
+		.ulDemo{
+			/*float: left;*/
+			border: 1px black solid;
+			margin: 5px;
+			list-style: none;
+			padding: 0;
+		}
+		.divDemo{
+			
+			/*//display: inline-block;*/
+		}
+	</style>
+</head>
+<body>
+	<ul class="ulDemo">
+		<li>line1</li>
+		<li>line1</li>
+		<div class="divDemo" id="divDemo">
+			<li>line2</li>
+			<li>line3</li>
+			<li>line4</li>
+			<li class="li1">line5</li>
+			<li>line1</li>
+			<li>line1</li>
+			<li class="li2">line1</li>
+		</div>
+		<li>line1</li>
+		<li>line1</li>
+		<li>line1</li>
+		<li>line1</li>
+		<li>line1</li>
+		<li>line1</li>
+	</ul>
+<script type="text/javascript">
+	// $(".ulDemo").children().css("color","red");//方法children获取所有子元素
+	//$("li:eq(6)").closest("div").css("border","1px solid black");//遍历父元素的
+	//$("div").find("li").css("color","red");//使用find方法获取子元素
+	//alert($(".divDemo").html());
+	//$(".li1").next().css("color","red");//获取下一个兄弟节点元素
+	//$(".li1").nextAll().css("color","red");//获取后面所有的兄弟节点元素
+	//$(".li1").nextUntil(".li2").css("color","red");//获取后面所有的兄弟节点元素知道until。使用nextUntil方法
+	//$(".li2").prev().css("color","red");//使用prev方法获取上一个兄弟节点元素
+	//$(".li2").prevAll().css("color","red");//使用prevAll获取前面所有的兄弟节点元素
+	$(".li2").prevUntil(".li1").css("color","red");//使用prevUntil方法获取前面所有的兄弟节点元素，直到until值
+	//$(".li2").siblings().css("color","red");//使用sibling方法获取所有兄弟节点元素
+
+
+	//alert($(".li1").parent().html());//使用parent方法获取父元素
+	//alert($(".li1").parents().length);//使用parents方法获取所有父级节点
+	//alert($(".li1").parentsUntil("ul").length);//使用parentsUntil知道ul方法获取所有父级节点知道until值
+	//alert($(".li1").offsetParent().length); //获取偏移的父级节点
+</script>
+</body>
+</html>

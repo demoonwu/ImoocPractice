@@ -1,0 +1,4 @@
+0======>exname:QQ截图20170106213310.jpg|path:./wucloud/20170119033041351.jpeg|zoompath:./wucloudThumbnail/zoom20170119033041140.jpeg|size:127229byte
+0======>exname:123.txt|path:./wucloud/20170119033053923.plain|zoompath:./wucloudThumbnail/defaultThumbnail.jpg|size:2604byte
+1======>exname:Hydrangeas.jpg|path:./wucloud/20170119033115678.jpeg|zoompath:./wucloudThumbnail/zoom20170119033115970.jpeg|size:595284byte
+2======>exname:Jellyfish.jpg|path:./wucloud/20170119033115838.jpeg|zoompath:./wucloudThumbnail/zoom20170119033115748.jpeg|size:775702byte

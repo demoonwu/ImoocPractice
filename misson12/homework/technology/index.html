@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>技术文章 - 学编程 - 自学编程第一站 - Powered By EduSoho</title>
+
+  <!-- Bootstrap -->
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    .navbar-default .row img{
+      position: relative;
+      top:-33%;
+      height: 200%;
+    }
+    #tabBanner1{
+      border: 0;
+    }
+    #tabBanner1 li.active a{
+      border: 0;
+    }
+
+    #mainContent>.row>.col-md-7,#mainContent>.row>.col-md-4>.side-content{
+      margin: 20px;
+      text-align: left;
+      border: 1px solid #eee;
+    }
+    .comment span{
+      margin: 20px;
+      background: #eee;
+    }
+
+    footer{
+      background: #1e3346;
+      color: white;
+      height: 40px;
+      line-height: 40px;
+    }
+  </style>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>  
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="col-md-4">
+            <a class="navbar-brand" href="#">
+              <img src="http://www.xuebiancheng.cn/files/system/2016/07-21/17193573d3cc852930.JPG?7.5.12" alt="学编程"/>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="搜索">                   
+              </div>
+              <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>              
+              <li><a href="#" data-toggle="modal" data-target="#myModal">注册</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部课程<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章资讯<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#">学习小组</a></li>
+            <li><a href="#">捐助本站</a></li>
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="#banner1" aria-controls="banner1" role="tab" data-toggle="tab">热门文章频道</a></li>
+            <li role="presentation" class="active"><a href="#banner2" aria-controls="banner2" role="tab" data-toggle="tab">技术文章</a></li>
+            <li role="presentation"><a href="#banner3" aria-controls="banner3" role="tab" data-toggle="tab">行业咨询</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="banner1">...</div>
+            <div role="tabpanel" class="tab-pane active" id="banner2">
+              <ul class="nav nav-tabs" id="tabBanner1">
+                <li role="presentation" class="active"><a href="#">全部</a></li>
+                <li role="presentation"><a href="#">前端</a></li>
+                <li role="presentation"><a href="#">数据库</a></li>
+                <li role="presentation"><a href="#">服务端</a></li>
+              </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="banner3">...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="mainContent">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="page-header">
+              <h3> <small>服务端</small><br>linux下的环境变量详解</h3>
+              <p>环境变量简介有木有遇到过这样的情况，你明明刚刚安装了一个程序，可是在shell里执行命令的时候就是报错说找不到command。哦哦，后来才知道原来是没有设置PATH环境变量。PATH环境变量决定了shell将要在那些目录寻找命令或者程序，PATH的值是一系列目录，当你运行一个命令的时候，linux在...</p>
+            </div>
+            <div class="page-header">
+              <h3> <small>前端</small><br>JavaScript-DOM浅析</h3>
+              <p>DOM简介DOM（Document Object Model）即文档对象模型，针对HTML 和XML 文档的API（应用程序接口）。DOM 描绘了一个层次化的节点树，运行开发人员添加、移除和修改页面的某一部分。通过 DOM，可以访问所有的 HTML 元素，连同它们所包含的文本和属性。可以对其中的内容...</p>
+            </div>
+            <div class="page-header">
+              <h3> <small>前端</small><br>纯CSS完美实现垂直水平居中的6种方式</h3>
+              <p>前言由于HTML语言的定位问题，在网页中实现居中也不是如word中那么简单，尤其在内容样式多变，内容宽高不定的情况下，要实现合理的居中也是颇考 验工程师经验的。网上讲居中的文章很多，但是都不太完整，所以小茄今天就来总结下纯CSS实现居中的各种方案。学疏才浅，文中如有不当之处，万望指出！6种方案1、绝...</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="side-content">
+              <div class="page-header">
+                <h4>热门热门文章</h4>
+              </div>
+                <ol >
+                  <li >php实现递归的三种基本方式...</li>
+                  <li >Mysql 中创建索引和索引的使用问题...</li>
+                  <li >前端开发者应该知道的 CSS 小技巧...</li>
+                  <li >纯CSS完美实现垂直水平居中的6种方式.../li>
+                  <li >linux下的环境变量详解...</li>
+                  <li>千万级别数据的mysql数据表优化...</li>
+                </ol>
+            </div>
+            <div class="side-content">
+              <div class="page-header">
+                <h4>热门标签</h4>
+              </div>
+                <button type="button" class="btn btn-success">thinkphp</button>
+                <button type="button" class="btn btn-success">Mongodb</button>
+                <button type="button" class="btn btn-success">photoshop</button>
+                <button type="button" class="btn btn-success">hbase</button>
+                <button type="button" class="btn btn-success">hdfs</button>
+                <button type="button" class="btn btn-success">微信公众平台</button>
+            </div>
+            <div class="side-content">
+              <div class="page-header">
+                <h4>热门评论</h4>
+              </div>
+                <div class="comment">
+                  <div class="page-header">
+                    <h5>sxhall 评论于 linux下的环境变量详解</h5>
+                  </div>
+                  <span>文章写的不错，顶一个</span>
+                </div>
+                <div class="comment">
+                  <div class="page-header">
+                    <h5>sxhall 评论于 linux下的环境变量详解</h5>
+                  </div>
+                  <span>文章写的不错，顶一个</span>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <footer>
+        <span>Powered by EduSoho v7.5.12 ©2014-2017 好知网   课程存档 课程内容版权均归学编程所有 京ICP备13042384号</span>
+      </footer>
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="./bootstrap/js/bootstrap.min.js"></script>
+    </body>
+    </html>

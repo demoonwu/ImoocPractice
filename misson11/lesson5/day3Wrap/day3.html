@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>wrap包裹</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<style type="text/css">
+		.ulDemo{
+			float: left;
+			border: 1px black solid;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="ulDemo">
+		<li>line1</li>
+		<div><li>line2</li></div>
+		<li>line3</li>
+		<li>line4</li>
+		<li>line5</li>
+		<li>line6</li>
+		<li>line7</li>
+	</ul>
+<script type="text/javascript">
+	//$(".ulDemo li").wrap("<div></div>");//使用wrap方法进行包裹
+	// $(".ulDemo li").wrapAll("<div></div>");//使用wrapAll进行大包裹
+	$("li").unwrap();//使用unwrap进行解包
+	//$("li").unwrap("<div></div>");//这个报错 
+	//$(".ulDemo li").wrapInner("<span></span>");//使用wrapInner进行行内包裹 
+</script>
+</body>
+</html>

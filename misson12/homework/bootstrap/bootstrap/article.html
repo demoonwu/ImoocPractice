@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/article.css">
+    
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <ul class="container">
+                <li id="logo">
+                    <a href="javascript:" class="glyphicon glyphicon-align-justify" id="sidebtn">
+                    </a>
+                    <a href="">
+                        <img src="./img/logo.jpg" height="50">
+                    </a>
+                    <a href="" class="header">
+                        <img src="./img/avatar.png">
+                    </a>
+                </li>
+                <li id="search">
+                    <form>
+                        <input type="text" name="" placeholder="搜索">
+                        <button class="glyphicon glyphicon-search"></button>
+                    </form>
+                </li>
+                <li>
+                    <a href="">
+            		登录
+            	</a>
+                    <a href="">
+            		注册
+            	</a>
+                </li>
+            </ul>
+        </header>
+        <nav id="firstnav">
+            <div id="bar"></div>
+            <ul class="container">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部课程 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">前端开发</a></li>
+                        <li><a href="#">后端开发</a></li>
+                        <li><a href="#">移动开发</a></li>
+                        <li><a href="#">数据库</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章咨询 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">技术文章</a></li>
+                        <li><a href="#">行业咨询</a></li>
+                    </ul>
+                </li>
+                <li><a>学习小组</a></li>
+                <li><a>捐助本站</a></li>
+            </ul>
+        </nav>
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8
+">
+                        <section class="section">
+                            <p class="path">
+                                <a href="#">热门文章</a>
+                                <a href="#" class="xie">技术文章</a>
+                                <a href="#" class="xie">服务端</a>
+                                <a href="#" class="xie">正文</a>
+                            </p>
+                            <div class="article-metas">
+                                <div class="date">
+                                    <div>18</div>
+                                    <div>08月</div>
+                                </div>
+                                <div class="metas-body">
+                                    <h2>linux下的环境变量详解</h2>
+                                    <div>
+                                        <span>
+                                		<i class="glyphicon glyphicon-eye-open"></i>
+                                		960
+                                	</span>
+                                        <span>
+                                		<i class="glyphicon glyphicon-comment"></i>
+                                		2
+                                	</span>
+                                        <span>
+                                			<i class="glyphicon glyphicon-heart-empty"></i>
+                                			1
+                                	</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-text">
+                                <h1>环境变量简介</h1>
+                                <div>
+                                    <p>有木有遇到过这样的情况，你明明刚刚安装了一个程序，可是在shell里执行命令的时候就是报错说找不到command。哦哦，后来才知道原来是没有设置PATH环境变量。 PATH环境变量决定了shell将要在那些目录寻找命令或者程序，PATH的值是一系列目录，当你运行一个命令的时候，linux在这些目录下进行搜索编译链接。 我们可以通过修改~/.bash_profile文件来新增或者添加PATH环境变量。其格式为：</br>
+                                        <pre><code>PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;</code></pre>
+                                        <p>你可以自己加上指定的路径，中间用冒号隔开。环境变量更改后，在用户下次登陆时生效，如果想立刻生效，则可执行下面的语句：$ source .bash_profile。 Linux是一个多用户的操作系统。每个用户登录系统后，都会有一个专用的运行环境。通常每个用户默认的环境都是相同的，这个默认环境实际上就是一组环境变量的定义。用户可以对自己的运行环境进行定制，其方法就是修改相应的系统环境变量。
+                                        </p>
+                                        <p> 设置环境变量 环境变量是和Shell紧密相关的，用户登录系统后就启动了一个Shell。对于Linux来说一般是bash，但也可以重新设定或切换到其它的Shell（使用chsh命令）。 根 据发行版本的情况，bash有两个基本的系统级配置文件：/etc/bashrc和/etc/profile。这些配置文件包含两组不同的变 量：shell变量和环境变量。前者只是在特定的shell中固定（如bash），后者在不同shell中固定。很明显，shell变量是局部的，而环境 变量是全局的。环境变量是通过Shell命令来设置的，设置好的环境变量又可以被所有当前用户所运行的程序所使用。对于bash这个Shell程序来说， 可以通过变量名来访问相应的环境变量，通过export来设置环境变量。 注：Linux的环境变量名称一般使用大写字母</p>
+                                        <p>
+                                        修改已存在的环境变量
+MYNAME=”change name to jack”
+</p>
+<p>
+	
+
+使用env命令显示所有的环境变量
+env
+HOSTNAME=localhost.localdomain
+SHELL=/bin/bash
+TERM=xterm
+HISTSIZE=1000
+SSH_CLIENT=192.168.136.151 1740 22
+QTDIR=/usr/lib/qt-3.1
+SSH_TTY=/dev/pts/0
+……
+</p>
+<p>
+使用set命令显示所有本地定义的Shell变量
+set
+BASH=/bin/bash
+BASH_ENV=/root/.bashrc
+……
+</p>
+<p>
+使用unset命令来清除环境变量
+export TEMP_KEVIN=”kevin”
+env | grep TEMP_KEVIN
+unset TEMP_KEVIN
+env | grep TEMP_KEVIN
+</p>
+<p>
+使用readonly命令设置只读变量
+注：如果使用了readonly命令的话，变量就不可以被修改或清除了。
+export TEMP_KEVIN ="kevin"
+readonly TEMP_KEVIN
+env | grep TEMP_KEVIN
+unset TEMP_KEVIN
+-bash: unset: TEMP_KEVIN: cannot unset: readonly variable
+TEMP_KEVIN ="tom"
+-bash: TEMP_KEVIN: readonly variable
+</p>
+<p>
+通过修改环境变量定义文件来修改环境变量。
+需要注意的是，一般情况下，仅修改普通用户环境变量配置文件，避免修改根用户的环境定义文件，因为那样可能会造成潜在的危险。
+cd ~ #到用户根目录下
+ls -a #查看所有文件，包含隐藏的文件
+vi .bash_profile #修改用户环境变量文件
+例如：
+编辑你的PATH声明，其格式为：
+<pre><code>PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;</code></pre>
+你可以自己加上指定的路径，中间用冒号隔开。
+环境变量更改后，在用户下次登陆时生效。
+如果想立刻生效，则可执行下面的语句：$source .bash_profile
+需要注意的是，最好不要把当前路径”./”放到PATH里，这样可能会受到意想不到的攻击。
+完成后，可以通过$ echo $PATH查看当前的搜索路径。这样定制后，就可以避免频繁的启动位于shell搜索的路径之外的程序了。
+</p>
+总结
+Linux的变量种类
+按变量的生存周期来划分，Linux变量可分为两类
+永久的：需要修改配置文件，变量永久生效。
+临时的：使用export命令行声明即可，变量在关闭shell时失效。
+
+设置变量的三种方法
+1.在/etc/profile文件中添加变量【对所有用户生效（永久的）】
+                                </div>
+                            </div>
+                            <div class="article-tags">
+                                标签：<a href="">Linux</a>
+                            </div>
+                            <div class="article-sns">
+                                <a>
+                                    <i class="glyphicon glyphicon-heart-empty">1</i>
+                                </a>
+                                <span>
+                        		<i class="icon-share"></i>
+                        	</span>
+                            </div>
+                            <div class="empty">
+                                你还没有登录，请先<a>登录</a>或<a>注册</a>！
+                            </div>
+                            <div class="comment-list">
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <img src="./img/avatar.png">
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> • </span>
+                                                <a href="">11-04</a>
+                                            </div>
+                                            <div class="editor-text">
+                                                文章写的不错，顶一个
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <i class="glyphicon glyphicon-thumbs-up">2</i>
+                                                </a>
+                                                <a href="">
+                                                    <span>回复</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src="./img/avatar.png">
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> • </span>
+                                                <a href="">11-04</a>
+                                            </div>
+                                            <div class="editor-text">
+                                                文章写的不错，顶一个
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <i class="glyphicon glyphicon-thumbs-up">2</i>
+                                                </a>
+                                                <a href="">
+                                                    <span>回复</span>
+                                                </a>
+                                            </div>
+                                            <div class="subcomments ">
+                                                <div>
+                                                    <img src="./img/avatar.png">
+                                                </div>
+                                                <div>
+                                                    <div>
+                                                        <a href="">sxhall</a>
+                                                        <span> • </span>
+                                                        <a href="">11-04</a>
+                                                    </div>
+                                                    <div class="editor-text">
+                                                        文章写的不错，顶一个
+                                                    </div>
+                                                    <div>
+                                                        <a href="">
+                                                            <i class="glyphicon glyphicon-thumbs-up">2</i>
+                                                        </a>
+                                                        <a href="">
+                                                            <span>回复</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="empty">
+                                                    你还没有登录，请先<a>登录</a>或<a>注册</a>！
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <aside class="col-md-4" id="aside">
+                         <section>
+                            <!-- 热门咨询 -->
+                            <div class="hot-article panel">
+                                <h3>
+                            热门文章
+                          </h3>
+                                <div class="hot-article-body">
+                                    <div>
+                                        <span class="num">1</span>
+                                    </div>
+                                    <div>
+                                        <a>php实现递归的三种基本方式</a>
+                                    </div>
+                                </div>
+                                <div class="hot-article-body">
+                                    <div>
+                                        <span class="num">2</span>
+                                    </div>
+                                    <div>
+                                        <a>Mysql 中创建索引和索引的使用问题</a>
+                                    </div>
+                                </div>
+                                <div class="hot-article-body">
+                                    <div>
+                                        <span class="num">3</span>
+                                    </div>
+                                    <div>
+                                        <a>前端开发者应该知道的 CSS 小技巧</a>
+                                    </div>
+                                </div>
+                                <div class="hot-article-body">
+                                    <div>
+                                        <span class="num">4</span>
+                                    </div>
+                                    <div>
+                                        <a>纯CSS完美实现垂直水平居中的6种方式</a>
+                                    </div>
+                                </div>
+                                <div class="hot-article-body">
+                                    <div>
+                                        <span class="num">5</span>
+                                    </div>
+                                    <div>
+                                        <a>linux下的环境变量详解</a>
+                                    </div>
+                                </div>
+                                <div class="hot-article-body">
+                                    <div>
+                                        <span class="num">6</span>
+                                    </div>
+                                    <div>
+                                        <a>千万级别数据的mysql数据表优化</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 热门标签 -->
+                            <div class="hot-tags panel">
+                                <h3>
+                            热门标签
+                          </h3>
+                                <div>
+                                    <a href="">thinkphp</a>
+                                    <a href="">mongodb</a>
+                                    <a href="">photoshop</a>
+                                    <a href="">hbase</a>
+                                    <a href="">hdfs</a>
+                                    <a href="">hadoop</a>
+                                    <a href="">jQuery</a>
+                                    <a href="">jQuery插件</a>
+                                    <a href="">微信公众平台</a>
+                                    <a href="">thinkphp</a>
+                                    <a href="">mongodb</a>
+                                    <a href="">photoshop</a>
+                                    <a href="">hbase</a>
+                                    <a href="">hdfs</a>
+                                </div>
+                            </div>
+                            <!-- 热门评论 -->
+                            <div class="hot-comment panel">
+                                <h3>热门评论</h3>
+                                <div class="comment-body ">
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                <img src="./img/avatar.png" class="avatar-sm">
+                                            </div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> 评论于</span>
+                                                <a href=""> linux下的环境变量详解</a>
+                                            </div>
+                                            <div>
+                                                文章写的不错，顶一个
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <img src="./img/avatar.png" class="avatar-sm">
+                                            </div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> 评论于</span>
+                                                <a href=""> linux下的环境变量详解</a>
+                                            </div>
+                                            <div>
+                                                文章写的不错，顶一个
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <img src="./img/avatar.png" class="avatar-sm">
+                                            </div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> 评论于</span>
+                                                <a href=""> linux下的环境变量详解</a>
+                                            </div>
+                                            <div>
+                                                文章写的不错，顶一个
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <img src="./img/avatar.png" class="avatar-sm">
+                                            </div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> 评论于</span>
+                                                <a href=""> linux下的环境变量详解</a>
+                                            </div>
+                                            <div>
+                                                文章写的不错，顶一个
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <img src="./img/avatar.png" class="avatar-sm">
+                                            </div>
+                                            <div>
+                                                <a href="">sxhall</a>
+                                                <span> 评论于</span>
+                                                <a href=""> linux下的环境变量详解</a>
+                                            </div>
+                                            <div>
+                                                文章写的不错，顶一个
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 推荐热门文章 -->
+                            <div class="intro-hot-article panel">
+                                <h3>推荐热门文章</h3>
+                                <div>
+                                    <div>
+                                        <span class="num">1</span>
+                                    </div>
+                                    <div>
+                                        <a>纯CSS完美实现垂直水平居中的6种方式</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span class="num">2</span>
+                                    </div>
+                                    <div>
+                                        <a>PHP防止同一个账号，同时在多个不同设备登录(单点登录)</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span class="num">3</span>
+                                    </div>
+                                    <div>
+                                        <a>纯CSS完美实现垂直水平居中的6种方式</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span class="num">4</span>
+                                    </div>
+                                    <div>
+                                        <a>PHP防止同一个账号，同时在多个不同设备登录(单点登录)</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span class="num">5</span>
+                                    </div>
+                                    <div>
+                                        <a>纯CSS完美实现垂直水平居中的6种方式</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span class="num">6</span>
+                                    </div>
+                                    <div>
+                                        <a>PHP防止同一个账号，同时在多个不同设备登录(单点登录)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div class="container">
+                <p class="text-center">
+                    Powered by EduSoho v7.5.5 ©2014-2017 好知网 课程存档 课程内容版权均归学编程所有 京ICP备13042384号
+                </p>
+            </div>
+        </footer>
+    </div>
+    <div id="es-bar-menu">
+        <ul class="bar-menu-top">
+            <li>
+                学</br>
+                习</br>
+                中</br>
+                心
+            </li>
+            <li data-toggle="tooltip" data-placement="left" title="" data-original-title="我的考试/作业" id="exambox">
+                <a href="">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </li>
+            <li data-toggle="tooltip" data-placement="left" title="" data-original-title="我的课程/就业班级" id="subjectbox">
+                <a href="">
+                    <i class="glyphicon glyphicon-book"></i>
+                </a>
+            </li>
+            <li data-toggle="tooltip" data-placement="left" title="" data-original-title="通知" id="tipbox">
+                <a href="">
+                    <i class="glyphicon glyphicon-bell"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="gotop">
+            <li data-toggle="tooltip" data-placement="left" title="" data-original-title="回到顶端" id="gotop">
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-chevron-up"></i>
+                    <span class="text-sm">TOP</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="nav-mobile" id="nav-mobile">
+        <form>
+            <div>
+                <input type="text" name="q" placeholder="搜索">
+                <button class="glyphicon glyphicon-search"></button>
+            </div>
+        </form>
+        <div>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">全部课程 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">前端开发</a></li>
+                        <li><a href="#">后端开发</a></li>
+                        <li><a href="#">移动开发</a></li>
+                        <li><a href="#">数据库</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">文章咨询 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">技术文章</a></li>
+                        <li><a href="#">行业咨询</a></li>
+                    </ul>
+                </li>
+                <li style="clear: both;">
+                    <a href="">学习小组</a>
+                </li>
+                <li>
+                    <a href="">捐助本站</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="mask">
+    </div>
+    <script type="text/javascript" src="bootstrap3/js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+</body>
+
+</html>

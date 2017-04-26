@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript" src="./unslider.js"></script>
+	<link rel="stylesheet" type="text/css" href="./unslider.css"> 
+	<title>图片轮播</title>
+</head>
+<body>
+	<div class="banner" id="banner">
+	    <ul>
+	        <li><img src="./img/1.jpg"></li>
+	        <li><img src="./img/2.jpg"></li>
+	        <li><img src="./img/3.jpg"></li>
+	        <li><img src="./img/4.jpg"></li>
+	    </ul>
+	  	<a href="#" class="unslider-arrow prev"><</a>
+		<a href="#" class="unslider-arrow next">></a>
+	</div>
+<script type="text/javascript">
+	$(function() {
+	    var unslider = $('.banner').unslider({
+			speed: 500,               //  The speed to animate each slide (in milliseconds)
+			delay: 3000,              //  The delay between slide animations (in milliseconds)
+			complete: function() {},  //  A function that gets called after every slide animation
+			keys: false,               //  Enable keyboard (left, right) arrow shortcuts
+			dots: true,               //  Display dot navigation
+			fluid: true             //  Support responsive design. May break non-responsive designs
+		});
+
+		//var unslider = $('.banner').unslider();
+
+		$('.unslider-arrow').click(function() {
+	        var fn = this.className.split(' ')[1];
+
+	        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+	        unslider.data('unslider')[fn]();
+	    });
+		
+		function carousel(){
+	        //  也可改为prev实现向前轮播
+	        unslider.data('unslider')["next"]();
+		};
+		//自动刷新
+		window.autoRun=self.setInterval(carousel, 1000);
+		//实现鼠标移入移出事件
+
+		$(".banner").mouseout(function(){
+			window.clearInterval(autoRun);
+			window.autoRun=self.setInterval(carousel, 1000);
+		});
+		$(".banner").mouseover(function(){
+			window.clearInterval(autoRun);
+		});
+
+})
+</script>
+</body>
+</html>

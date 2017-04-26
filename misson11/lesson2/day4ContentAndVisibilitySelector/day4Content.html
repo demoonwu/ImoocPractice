@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<title>内容选择器</title>
+	<style type="text/css">
+		input{
+			width: 200px;
+		}
+		table{
+			border:2;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="searchInput" placeholder="搜索输入框" /><button id="searchButton">搜索</button><br/>
+	<table border="1">
+		<tr>
+			<td>id</td>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>学校</td>
+			<td>工作</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>lucy</td>
+			<td>19</td>
+			<td>HFUT</td>
+			<td>PROFESSOR</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Cici</td>
+			<td>19</td>
+			<td>HFUT</td>
+			<td>PROFESSOR</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Adtom</td>
+			<td>19</td>
+			<td>HFUT</td>
+			<td>PROFESSOR</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Bill</td>
+			<td>18</td>
+			<td>HFUT</td>
+			<td>PROFESSOR</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Couch</td>
+			<td>19</td>
+			<td>HFUT</td>
+			<td>PROFESSOR</td>
+		</tr>
+	</table>
+<script type="text/javascript">
+	$("tr:first").css("color","red");
+	
+	$("#searchButton").click(function(){
+		//var val=$("#searchInput").get(0).value;//jquery中val()函数，获取内容，类似于value
+		var val=$("#searchInput").val();
+		if(val.length>0){//length属性
+			$("tr:not(:first)").hide();//基本过滤选择器，hide方法
+			$("tr:contains("+val+")").show();//内容选择器
+		}else{
+			$("tr").show();//show()方法
+		}
+	});
+</script>
+</body>
+</html>

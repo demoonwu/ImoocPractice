@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<title>可见性选择器</title>
+</head>
+<body>
+	<ul>
+		<li>line1</li>
+		<li>line2</li>
+		<li style="display: none;">li3</li>
+		<li>li4</li>
+		<li><i>line5</i></li>
+		<li>line6</li>
+		<li><span>line7</span></li>
+		<li>line8</li>
+		<li><b></b></li>
+		<li></li>
+	</ul>
+<script type="text/javascript">
+	$("li:contains(ne)").css("color","blue");//包含文本内容contains的标签//标签名无法影响
+	$("li:empty").html("123456");//空标签过滤器
+	$("li:has(i)").css("color","red");//包含has的过滤器标签
+	$("li:parent").css("font-size","20px");//在树中做父元素的过滤器标签
+	$("li:hidden").css("display","block");//在树中基础选择器中，过滤出被隐藏的标签
+	$("li:visible").css("display","none");//在书中基础选择器中，过滤出显示出来(visible)的标签
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>	
+	<title>事件委派</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		div{
+			width:200px;
+			
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div><li>box1</li></div>
+	<button><li>增加</li></button>
+	<button>去除 </button>
+<script type="text/javascript">
+	// $("div").on("click", "li", function(){
+	// 	$("<li>增加的li</li>").appendTo(this);
+	// })//这样写会造成事件冒泡
+
+	//在js2.0以后的版本中，live方法已经被弃用，而使用delegate方法，同时，delegate本质上还是调用on方法，因此建议使用on方法
+	$("button:first").on("click", "li", function(){
+		$("<li>增加的li</li>").appendTo("div:first");
+	})
+	$("button:last").delegate(this, "click", function(){
+		$("div:first").undelegate("click")
+	})
+	// $("button").delegate(this,"click", function(){//也可以使用this调用自身
+	// 	$("<li>增加的li</li>").appendTo("div:first");
+	// })
+	$("div:first").delegate("li","click", function(){//也可以使用this调用自身
+		$(this).css("color","red");
+	})
+
+</script>
+</body>
+</html>

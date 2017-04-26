@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>jquery中的表单选择器</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+</head>
+<body>
+	<form id="form1">
+		<input type="text" name="uname" placeholder="姓名"/><br/>
+		<input type="password" name="upwd" placeholder="密码"/><br/>
+		<input type="radio" name="sex" checked="checked" value="male" />男
+		<input type="radio" name="sex" value="female"/>女<br/>
+		<input type="checkbox" name="hobbies[]"  checked="checked" value=1/>吃饭
+		<input type="checkbox" name="hobbies[]" value=2/>打游戏
+		<input type="checkbox" name="hobbies[]" value=3/>喝茶
+		<input type="checkbox" name="hobbies[]" value=4/>篮球
+		<input type="checkbox" name="hobbies[]" value=5/>爬山<br>
+		<select name="city">
+			<option value="beijing" >北京</option>
+			<option value="shanghai">上海</option>
+			<option value="guangzou" selected="selected" >广州</option>
+		</select><br>
+		<input type="hidden" name="id" value="123456789" />
+		<input type="file" name="pic"><br/>
+		<textarea name="info"> </textarea><br>
+		<input type="submit" name="提交"/>
+		<button>sub</button>
+	</form>
+<script type="text/javascript">
+	//alert($("#form1 :input").length);//选择器中input标签，前面要加空格
+	//alert($("input :checked").val());//input标签中被选中的值
+	//$("form :password").css("border","1px solid red");//form后面必须跟空格,其他的不用空格
+	//alert($("input:hidden").val());//iput标签中隐藏的标签
+	//alert($("form :enabled").length)//form标签中可用的标签
+	//alert($("option:selected").val());//opiton标签中被选中的值
+	$("form :password").css("border","1px solid red");
+</script>
+</body>
+</html>

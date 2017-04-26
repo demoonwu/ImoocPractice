@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<meta charset="utf-8">
+	<title>独立使用ajax</title>
+</head>
+<body>
+	<div id="requestDemo">demo</div>
+	<button id="requestButton">button1</button>
+<script type="text/javascript">
+$(function(){
+	$("#requestButton").click(function(){
+		$.ajax({
+			type:"post",
+			url:"./serverOne.php",
+			dataType:"html",
+			success:function(data){
+				$("#requestDemo").html(data);
+			},
+			error:function(jqXHR){
+				alert("发生错误:"+jqXHR.status);
+			}
+		})
+	})
+})
+
+
+
+
+
+// 	document.getElementById("requestButton").onclick=function(){
+// 			var request=new XMLHttpRequest();
+// 			request.open("post", "./serverOne.php");
+// 			request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+// 			request.send();
+// 			request.onreadystatechange=function(){
+// 				if(request.readyState===4){
+// 					if(request.status===200){
+// 						document.getElementById("requestDemo").innerHTML=request.responseText;
+// 					}else{
+// 						alert("参数错误"+request.status);
+// 					}
+// 				}
+// 			}
+// 		}
+// })
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<meta charset="utf-8">
+	<title>淡入淡出效果</title>
+	<style type="text/css">
+		#divDemoShowAndHide{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="divDemoShowAndHide">box1</div>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>轮播Toggle</button>
+	淡入的值<input type="text" name="fadeVal" id="fadeVal"/>
+	<button>淡入到</button>
+<script type="text/javascript">
+	$("button:first").click(function(){
+		$("#divDemoShowAndHide").css("background","red").fadeOut(2000);//fadeOut淡出效果
+	});
+	$("button:eq(1)").click(function(){
+		$("#divDemoShowAndHide").css("background","blue").fadeIn(2000);//fadeIn淡入效果
+	});
+	
+	$("button:eq(2)").click(function(){
+		$("#divDemoShowAndHide").css("background","yellow").fadeToggle(2000);//fadeToggle轮播效果
+	});
+	$("button:last").click(function(){
+		var fadeVal=$("#fadeVal").val();
+		$("#divDemoShowAndHide").css("background","black").fadeTo(2000, fadeVal)//使用fadeTo实现定点淡入效果
+	});
+	
+</script>
+</body>
+</html>

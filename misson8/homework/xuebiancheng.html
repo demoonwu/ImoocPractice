@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>学编程</title>
+		<link rel="stylesheet" href="./css/style.css" type="text/css" /> 
+		<script src="./js/script.js" ></script>
+	</head>
+	<body>
+		<header class="header_box">
+			<div class="header_box1">
+				<img style="display:block;margin:0 auto;" src="./img/17193573d3cc852930.jpg" alt="学编程" width="auto" height="100%"/>
+			</div>
+			<div class="header_box2">
+				<form action="./post.php" method="post">
+					<input style="display:block; width:50%; height:37px; margin:18.5px auto;" name="search" type="text" placeholder="搜索"/><br/>
+				</form>
+			</div>
+			<div class="header_box3">
+					<a href="http://www.xuebiancheng.cn/login?goto=%2F">登录</a>
+					<a href="http://www.xuebiancheng.cn/register?goto=%2F">注册</a>
+			</div>
+		</header>
+		<div class="clear"></div>
+		<hr class="hr_blue"/>
+		<nav class="nav_box">
+			<div class="nav_box1"></div>
+			<div class="nav_box1">全部课程</div>
+			<div class="nav_box1">文章资讯</div>
+			<div class="nav_box1">学习小组</div>
+			<div class="nav_box1">捐助本站</div>
+			<div class="nav_box1"></div>
+		</nav>
+		<div class="clear" style="height:0;"></div>
+		<section class="section_box">
+			<div id="section_box1">
+				<h3 class="active" onclick="changetab(this)">登录帐号</h3>
+				<div class="active">
+				<form id="form1" action="./login.php" method="post">
+					<br/><br/>
+					&nbsp;&nbsp;&nbsp;帐号<br/>
+					&nbsp;&nbsp;&nbsp;<input name="username" required type="text" placeholder="邮箱/手机/用户名" /><br/><br/>
+					&nbsp;&nbsp;&nbsp;密码<br/>
+					&nbsp;&nbsp;&nbsp;<input name="password"  required type="password" placeholder="5-20位英文、数字、符号，区别大小写"><br/><br/>
+					<div style="clear:both;"></div>
+					<input id="inputbox" type="submit" value="登录"/>
+				</form>
+				</div>
+				<h3  onclick="changetab(this)">注册帐号</h3>
+				<div >
+				<form id="form1" action="./register.php" method="post">
+					<br/><br/>
+					&nbsp;&nbsp;&nbsp;手机邮箱<br/>
+					&nbsp;&nbsp;&nbsp;<input id="loginId" name="loginId" type="text" required placeholder="填写你常用的邮箱或手机号码作为登录帐号" /><br/><br/>
+					&nbsp;&nbsp;&nbsp;用户名<br/>
+					&nbsp;&nbsp;&nbsp;<input name="username" type="text" required placeholder="中、英文均可，最长18个英文或9个汉字" /><br/><br/>
+					&nbsp;&nbsp;&nbsp;密码<br/>
+					&nbsp;&nbsp;&nbsp;<input name="password" type="password" required placeholder="5-20位英文、数字、符号，区别大小写"><br/><br/>
+					&nbsp;&nbsp;&nbsp;验证码<br/>
+					&nbsp;&nbsp;&nbsp;<input style="width:50%;display:block; margin-left:15px;float:left;" required name="validatedcode" type="type" placeholder="验证码">
+					<img src="./img/reg_captcha.jpg" alt="验证码图片"><br/><br/>
+					<div style="clear:both;"></div>
+					&nbsp;&nbsp;&nbsp;邀请码<span>选填</span><br/>
+					&nbsp;&nbsp;&nbsp;<input name="invationcode" type="type" placeholder="如果您有邀请码，请填写您的邀请码"><br/><br/>
+					<input id="inputbox" type="submit" value="注册"/>
+				</form>
+				</div>
+			</div>		
+		</section>
+		<footer>Powered by <a href="http://www.edusoho.com/">EduSoho v7.2.13</a> ©2014-2016 <a href="http://www.howzhi.com/">好知网</a>   <a href="http://www.xuebiancheng.cn/archive/course">课程存档</a> 课程内容版权均归<a href="http://www.xuebiancheng.cn/">学编程</a>所有 <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">京ICP备13042384号</a></footer>
+	</body>
+</html>

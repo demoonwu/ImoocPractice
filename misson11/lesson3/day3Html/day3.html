@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>HTML代码/文本/值</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+</head>
+<body>
+	<div>
+		<span>span1,span1</span>
+		<span>span2,span2</span>
+		<input type="text" name="username" value="userName"/>
+	</div>
+<script type="text/javascript">
+//script中有三种方法获取值
+//1、使用html()方法获取带有标签的值
+//2、使用text()方法获取除去标签的值
+//3、使用val()方法获取input表单的值 
+	//alert($("div").html());
+	alert($("div").text());
+	alert($("input").val("admin"));
+</script>
+</body>
+</html>

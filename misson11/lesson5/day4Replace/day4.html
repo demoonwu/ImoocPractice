@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery使用</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+</head>
+<body>
+	<ul>
+		<li>line1</li>
+		<li>line2</li>
+		<li>line3</li>
+		<li>line4</li>
+		<li>line5</li>
+	</ul>
+<script type="text/javascript">
+	$("ul li:eq(2)").replaceWith("<b>替换replaceWith的元素</b>");
+	$("<b>替换replaceAll的元素</b>").replaceAll("ul li:eq(3)");
+	//$(<b>).replaceAll("ul li:eq(1)");
+</script>
+</body>
+</html>

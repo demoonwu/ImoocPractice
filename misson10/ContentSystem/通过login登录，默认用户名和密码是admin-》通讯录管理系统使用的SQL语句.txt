@@ -1,0 +1,34 @@
+问题：在register.php中怎样使用正则表达式来框定输入范围,手机号码只能输入手机号?
+没看到要求注册要用绑定参数，看到时候已经写好了，然后我在添加通讯录里面用的绑定参数
+
+问题:在register.php中，我使用了网上的样式模板，为什么我已经把js文件下载下来了，但是每次打开时还是要连接cnzz网站（有对这个网站发送请求）,很影响加载速度的.
+问题:使用了EOF,但是不知道这个是做什么用的，网上百度查了下说是文字流？
+问题:user表中的info字段为啥不能有default值，一写就报错
+问题：selectpage。class。php第62行不能用？绑定参数，一绑定就报错
+问题：deleteContent中，第九行，返回的状态不对，我想返回在哪页删的就回哪页，可是程序会直接回第一页
+
+说明：管理员的字段值设置为2
+create database if not exists content;
+
+use content;
+
+create table if not exists user(
+id int not null auto_increment primary key,
+username varchar(30) not null default '',
+password char(32) not null default '',
+tel varchar(15) not null default'',
+info text not null default '',
+isAdmin tinyint(1) not null default 0,
+createdTime int(10) not null default 0
+)DEFAULT CHARSET UTF8 ENGINE=INNODB;
+
+//-------------------下面是通讯录表--------------------
+
+create table if not exists content(
+id int not null auto_increment primary key,
+username varchar(30) not null default '',
+name varchar(30) not null default '',
+tel char(32) not null default '',
+info text not null default '',
+createdTime int(10) not null default 0
+)DEFAULT CHARSET UTF8;

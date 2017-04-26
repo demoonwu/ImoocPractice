@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../../jQuery/jquery.js""></script>
+	<title>层级选择器</title>
+	<style type="text/css">
+		div{
+			border: black solid 1px;
+			width: 200px;
+			height: 200px;
+			float: left;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<li>1</li>
+		<span><li>1</li></span>
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+	</div>
+	<li>1</li>
+	<li>1</li>
+	<li>1</li>
+	<div>div2</div>
+	<li>1</li>
+	<li>1</li>
+	<li>1</li>
+	<div>div2</div>
+	<div>div3</div>
+<script type="text/javascript">
+	//$("div li").css("color","red");  //在div里面所有的li标签
+	//$("div>li").css("color","red");//在div里面的子标签 
+	//$("div+li").css("color","red");//在div后面的所有li
+$("div~li").css("color","red");//在div后面的所有li
+</script>
+</body>
+</html>

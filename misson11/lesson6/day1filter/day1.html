@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery的过滤器</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<style type="text/css">
+		.ulDemo{
+			float: left;
+			border: 1px black solid;
+			margin: 5px;
+			list-style: none;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<ul class="ulDemo">
+		<li>line1</li>
+		<li>line2</li>
+		<li class="li1">line3</li>
+		<li>line4</li>
+		<li>line5</li>
+		<li>line6</li>
+		<li>line7</li>
+		<li>line8</li>
+		<li>line9</li>
+	</ul>
+<script type="text/javascript">
+	$("li").eq(-2).css("color","red");//eq()使用过滤器
+	$("li").filter(".li1").css("color","blue");//使用filter过滤器
+	var arr=$("li").map(function(){
+		return $(this).html();
+	}).get().join();//加jion返回字符串，不加返回数组
+	alert(arr);
+</script>
+</body>
+</html>

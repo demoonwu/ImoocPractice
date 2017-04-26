@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+	<meta charset="utf-8">
+	<title>基本动画</title>
+	<style type="text/css">
+		#divDemoShowAndHide{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="divDemoShowAndHide">box1</div>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>轮播Toggle</button>
+<script type="text/javascript">
+	$("button:first").click(function(){
+
+		$("#divDemoShowAndHide").css("background","yellow").show(3000);//使用show方法，实现亮相
+	});
+	$("button:odd").click(function(){
+		$("#divDemoShowAndHide").hide(3000);//使用hide方法实现隐藏
+	});
+	$("button:last").click(function(){
+		$("#divDemoShowAndHide").toggle(3000);//使用toggle方法实现轮播
+	});
+
+</script>
+</body>
+</html>	

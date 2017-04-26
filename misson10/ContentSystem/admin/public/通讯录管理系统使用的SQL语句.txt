@@ -1,0 +1,39 @@
+问题:user表中的info字段为啥不能有default值，一写就报错,可是要求使用text，那就不管了，没默认就没默认吧
+问题：selectpage.class.php第62行不能用？绑定参数，一绑定就报，就是
+			$sql=<<<EOF
+					SELECT {$field} FROM {$this->tableName} LIMIT ?,?;
+EOF;
+
+关于重复注册的bug，直接在数据库建表时候写一个unique是不是就可以解决了？
+
+// $res->bindParam(1,$this->each_disNums);
+			// $res->bindParam(2,$current_page_s);
+这一部分
+
+问题：deleteContent中，第九行，返回的状态不对，我想返回在哪页删的就回哪页，可是程序会直接回第一页
+
+说明：管理员的字段值设置为2
+create database if not exists content;
+
+use content;
+
+create table if not exists user(
+id int not null auto_increment primary key,
+username varchar(30) not null default '',
+password char(32) not null default '',
+tel varchar(15) not null default'',
+info text not null default '',
+isAdmin tinyint(1) not null default 0,
+createdTime int(10) not null default 0
+)DEFAULT CHARSET UTF8 ENGINE=INNODB;
+
+//-------------------下面是通讯录表--------------------
+
+create table if not exists content(
+id int not null auto_increment primary key,
+username varchar(30) not null default '',
+name varchar(30) not null default '',
+tel char(32) not null default '',
+info text not null default '',
+createdTime int(10) not null default 0
+)DEFAULT CHARSET UTF8;

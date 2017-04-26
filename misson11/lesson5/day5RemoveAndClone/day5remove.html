@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery的remove方法</title>
+	<script type="text/javascript" src="../../jQuery/jquery.js"></script>
+</head>
+<body>
+	<ul>
+		<li>line1</li>
+		<li>line2</li>
+		<li>line3</li>
+		<li>line4</li>
+		<li>line5</li>
+	</ul>
+<script type="text/javascript">
+	//$("ul").empty();
+	//$("ul").remove();
+	// detach() 方法移除被选元素，包括所有文本和子节点。
+	// 这个方法会保留 jQuery 对象中的匹配的元素，因而可以在将来再使用这些匹配的元素。
+	// detach() 会保留所有绑定的事件、附加的数据，这一点与 remove() 不同。
+	$("ul").detach();
+</script>
+</body>
+</html>
